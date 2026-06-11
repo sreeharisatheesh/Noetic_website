@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Noetic Pricing — Simple, transparent pricing for AI keyboard. Free to start, premium features available.">
+  <meta property="og:title" content="Pricing — Noetic">
+  <meta property="og:description" content="Choose the perfect plan for your writing needs. Free, Pro, or Premium.">
+  <meta property="og:image" content="noetic-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — Noetic">
+  <meta name="twitter:description" content="Simple pricing. No surprises.">
+  <meta name="twitter:image" content="noetic-logo.png">
+  <link rel="canonical" href="https://yoursite.com/pricing.html">
+  <link rel="icon" href="noetic-logo.png">
+  <title>Pricing — Noetic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="noetic-logo.png" alt="Noetic" class="logo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span class="logo-text" style="display:none;">Noetic</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="index.html#features-section">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    
+    <button class="btn btn-ghost nav-cta" onclick="window.location.href='#'">Download Free</button>
+    
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html#features-section">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="#" class="btn btn-ghost" style="width: 100%; text-align: center;">Download Free</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PRICING SECTION -->
+<section class="section" style="padding: 5rem 0;">
+  <div class="container reveal">
+    <h1 style="text-align: center; margin-bottom: 0.5rem;">Simple pricing. No surprises.</h1>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Start free. Upgrade when you need more.</p>
+    
+    <!-- Toggle -->
+    <div class="price-toggle">
+      <div class="price-toggle-pill">
+        <button class="price-toggle-btn active" data-period="monthly">Monthly</button>
+        <button class="price-toggle-btn" data-period="yearly">Yearly</button>
+      </div>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <!-- FREE TIER -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); display: flex; flex-direction: column;">
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem;">Free</div>
+          <div style="font-size: 36px; font-weight: 800; margin-bottom: 0.25rem;">₹0<span style="font-size: 18px; color: var(--text-secondary); font-weight: 400;">/forever</span></div>
+        </div>
+        
+        <ul style="list-style: none; padding: 0; margin: 1.5rem 0; flex-grow: 1;">
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--blue); border-radius: 50%;"></span>
+            10 corrections/day
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--blue); border-radius: 50%;"></span>
+            All 5 AI tools
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--blue); border-radius: 50%;"></span>
+            16 languages
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--blue); border-radius: 50%;"></span>
+            23 tones
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--blue); border-radius: 50%;"></span>
+            Earn credits via ads
+          </li>
+        </ul>
+        
+        <button class="btn btn-primary" style="width: 100%;">Download Free</button>
+      </div>
+      
+      <!-- PRO TIER (MOST POPULAR) -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); display: flex; flex-direction: column; border: 2px solid var(--blue); transform: scale(1.05);">
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">Most Popular</div>
+          <div style="font-size: 36px; font-weight: 800; margin-bottom: 0.25rem;">
+            <span class="price-monthly">₹29<span style="font-size: 18px; color: var(--text-secondary); font-weight: 400;">/mo</span></span>
+            <span class="price-yearly" style="display: none;">₹299<span style="font-size: 18px; color: var(--text-secondary); font-weight: 400;">/yr</span></span>
+          </div>
+          <div style="display: inline-block; background: rgba(0,122,255,0.2); border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 12px; color: var(--blue);">
+            <span class="price-monthly">Best value</span>
+            <span class="price-yearly" style="display: none;">Save 14%</span>
+          </div>
+        </div>
+        
+        <ul style="list-style: none; padding: 0; margin: 1.5rem 0; flex-grow: 1;">
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--violet); border-radius: 50%;"></span>
+            100 corrections/day
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--violet); border-radius: 50%;"></span>
+            Everything in Free
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--violet); border-radius: 50%;"></span>
+            No ads
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--violet); border-radius: 50%;"></span>
+            Priority AI
+          </li>
+        </ul>
+        
+        <button class="btn btn-gradient" style="width: 100%;">Get Pro</button>
+      </div>
+      
+      <!-- PREMIUM TIER -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); display: flex; flex-direction: column;">
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;">Premium</div>
+          <div style="font-size: 36px; font-weight: 800; margin-bottom: 0.25rem;">
+            <span class="price-monthly">₹99<span style="font-size: 18px; color: var(--text-secondary); font-weight: 400;">/mo</span></span>
+            <span class="price-yearly" style="display: none;">₹999<span style="font-size: 18px; color: var(--text-secondary); font-weight: 400;">/yr</span></span>
+          </div>
+          <div style="display: inline-block; background: rgba(255,176,32,0.2); border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 12px; color: var(--gold);">
+            <span class="price-monthly">Unlimited</span>
+            <span class="price-yearly" style="display: none;">Save 16%</span>
+          </div>
+        </div>
+        
+        <ul style="list-style: none; padding: 0; margin: 1.5rem 0; flex-grow: 1;">
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--gold); border-radius: 50%;"></span>
+            Unlimited corrections
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--gold); border-radius: 50%;"></span>
+            Everything in Pro
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--gold); border-radius: 50%;"></span>
+            All premium AI tools
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; font-size: 14px; color: var(--text-secondary);">
+            <span style="display: inline-block; width: 4px; height: 4px; background: var(--gold); border-radius: 50%;"></span>
+            Early access
+          </li>
+        </ul>
+        
+        <button class="btn btn-primary" style="width: 100%;">Go Unlimited</button>
+      </div>
+    </div>
+    
+    <div style="text-align: center; background: var(--surface); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 0.5rem;">Subscriptions managed via App Store. Prices in INR.</p>
+      <p style="font-size: 13px; color: var(--text-tertiary);">To cancel: iPhone Settings → Apple ID → Subscriptions</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING FAQ -->
+<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Common questions.</h2>
+    
+    <div style="max-width: 700px; margin: 0 auto;">
+      <!-- FAQ Item 1 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>How do I cancel my subscription?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Go to iPhone Settings → Apple ID → Subscriptions → Noetic → Cancel Subscription. You'll lose access at the end of your billing cycle.</div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Can I switch between plans?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Yes, you can upgrade or downgrade anytime from the App Store app or iPhone Settings. Changes take effect at your next billing date.</div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>What happens when I hit my daily correction limit?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">On the free plan, you can watch a rewarded video ad for +10 bonus credits. Your limit resets daily at midnight UTC.</div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Is there a free trial for Pro or Premium?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">No free trial, but the free plan is fully-featured with a daily limit. Try it for as long as you want at no cost.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <!-- Column 1: Logo -->
+    <div class="footer-column">
+      <div class="footer-logo">
+        <img src="noetic-logo.png" alt="Noetic" class="logo-img" style="width: 32px; height: 32px;" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="logo-text" style="display:none; font-weight: 700;">Noetic</span>
+        <p class="footer-tagline">AI that types with you.</p>
+        <p class="footer-copyright">© 2025 Noetic. All rights reserved.</p>
+      </div>
+    </div>
+    
+    <!-- Column 2: Product -->
+    <div class="footer-column">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features-section">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#features-section">AI Assist</a></li>
+        <li><a href="index.html#features-section">Summarize</a></li>
+        <li><a href="index.html#features-section">Translate</a></li>
+      </ul>
+    </div>
+    
+    <!-- Column 3: Company -->
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+    
+    <!-- Column 4: Connect -->
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/noetic_aikeyboard" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12 6.63 0 12-5.37 12-12 0-6.63-5.37-12-12-12zm5.521 17.708c-.808.607-1.908.96-3.04.96-2.33 0-4.226-1.896-4.226-4.226 0-2.33 1.896-4.226 4.226-4.226 2.33 0 4.226 1.896 4.226 4.226 0 1.132-.353 2.232-.96 3.04zm1.254-7.218c-.303 0-.546.243-.546.546v1.368c0 .303.243.546.546.546h1.368c.303 0 .546-.243.546-.546v-1.368c0-.303-.243-.546-.546-.546h-1.368zM12 15.13c-1.723 0-3.13-1.407-3.13-3.13 0-1.723 1.407-3.13 3.13-3.13 1.723 0 3.13 1.407 3.13 3.13 0 1.723-1.407 3.13-3.13 3.13zm4.226-8.917H7.774c-1.532 0-2.774 1.242-2.774 2.774v4.452c0 1.532 1.242 2.774 2.774 2.774h8.452c1.532 0 2.774-1.242 2.774-2.774V7.989c0-1.532-1.242-2.774-2.774-2.774z"/>
+          </svg>
+          Instagram
+        </a></li>
+        <li><a href="https://www.threads.net/@noetic_aikeyboard" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm3.5 9c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-7 0c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5z"/>
+          </svg>
+          Threads
+        </a></li>
+        <li><a href="mailto:noeticaikeyboard@gmail.com" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm6 9h-5V6h5v3zm0 3h-5v3h5v-3zM6 6h5v3H6V6zm0 6h5v3H6v-3z"/>
+          </svg>
+          Email
+        </a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>Noetic is not affiliated with Apple Inc. iPhone and iOS are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+</body>
+</html>

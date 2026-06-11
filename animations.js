@@ -184,6 +184,38 @@ function setupOrbParallax() {
   });
 }
 
+// DEMO LAZY LOAD
+function setupDemoLazyLoad() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const iframe = e.target.querySelector('iframe[data-src]');
+        if (iframe && !iframe.src) {
+          iframe.src = iframe.dataset.src;
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  document.querySelectorAll('.demo-phone-frame').forEach(f => obs.observe(f));
+}
+
+// PRICING TOGGLE
+function setupPricingToggle() {
+  const btns = document.querySelectorAll('.price-toggle-btn');
+  if (!btns.length) return;
+  
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const yearly = btn.dataset.period === 'yearly';
+      document.querySelectorAll('.price-monthly').forEach(el => el.style.display = yearly ? 'none' : 'block');
+      document.querySelectorAll('.price-yearly').forEach(el => el.style.display = yearly ? 'block' : 'none');
+    });
+  });
+}
+
 // INITIALIZE ALL
 document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
@@ -194,4 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupHamburgerMenu();
   setupLogoFallback();
   setupOrbParallax();
+  setupDemoLazyLoad();
+  setupPricingToggle();
 });

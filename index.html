@@ -30,8 +30,8 @@
     </div>
     
     <ul class="nav-links" id="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#features-section">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="support.html">Support</a></li>
     </ul>
@@ -47,8 +47,8 @@
   
   <div class="nav-mobile" id="nav-mobile">
     <ul>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#features-section">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="support.html">Support</a></li>
       <li><a href="#" class="btn btn-ghost" style="width: 100%; text-align: center;">Download Free</a></li>
@@ -98,70 +98,121 @@
     </div>
   </div>
   
-  <!-- iPhone Mockup -->
-  <div class="iphone-mockup" style="margin-top: 4rem;">
-    <div class="iphone-notch"></div>
-    <div class="iphone-screen">
-      <div class="iphone-tab-bar">
-        <div class="iphone-tab active">Fix</div>
-        <div class="iphone-tab">Tone</div>
-        <div class="iphone-tab">Assist</div>
-        <div class="iphone-tab">Sum</div>
-        <div class="iphone-tab">Trans</div>
-      </div>
-      <div class="iphone-content">
-        <div class="iphone-card">
-          <div class="iphone-card-title">Rewritten professionally.</div>
-          <div style="color: var(--text-tertiary); font-size: 11px; margin-bottom: 8px;">✓</div>
-          <div class="iphone-card-buttons">
-            <button class="iphone-card-btn">Replace</button>
-            <button class="iphone-card-btn">Copy</button>
-          </div>
-        </div>
+  <!-- iPhone Mockup with Demo -->
+  <div style="margin-top: 4rem; display: flex; justify-content: center;">
+    <div class="demo-phone-frame reveal">
+      <div class="demo-phone-inner">
+        <iframe class="demo-iframe" data-src="demo-grammar.html" scrolling="no" loading="lazy"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURE STRIP -->
-<section class="section" id="features" style="background: var(--bg); padding: 5rem 0;">
-  <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 3rem;">Everything you need. Nothing you don't.</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;" class="reveal-group">
-      <!-- Card 1 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">✦</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Grammar Fix</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">Correct errors in one tap</p>
+<!-- FEATURE DEMOS SECTION -->
+<section class="section" id="features-section" style="padding: 5rem 0;">
+  <div class="container">
+    <!-- Feature 1: Grammar Fix -->
+    <div class="feature-row reveal">
+      <div>
+        <p class="feature-eyebrow">FIX GRAMMAR</p>
+        <h2 class="feature-headline">Perfect every sentence.</h2>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Select any text, tap Fix, and Noetic rewrites it for clarity, grammar, and flow. Two modes: Fix Grammar for corrections, Refine for polished rewrites.</p>
+        <ul class="feature-bullets">
+          <li>Corrects grammar & punctuation</li>
+          <li>Refine mode for stylistic polish</li>
+          <li>One tap — no copy-pasting</li>
+        </ul>
       </div>
-      
-      <!-- Card 2 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">🎭</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Tone Rewrite</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">20+ tones, from boardroom to Gen Z</p>
+      <div style="display: flex; justify-content: center;">
+        <div class="demo-phone-frame">
+          <div class="demo-phone-inner">
+            <iframe class="demo-iframe" data-src="demo-grammar.html" scrolling="no" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
-      
-      <!-- Card 3 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">✧</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">AI Assist</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">Rephrase and clarify anything</p>
+    </div>
+
+    <!-- Feature 2: Tone Rewrite -->
+    <div class="feature-row reverse reveal" style="margin-top: 5rem;">
+      <div style="display: flex; justify-content: center;">
+        <div class="demo-phone-frame">
+          <div class="demo-phone-inner">
+            <iframe class="demo-iframe" data-src="demo-tone.html" scrolling="no" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
-      
-      <!-- Card 4 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">◈</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Summarize</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">Long text → bullets instantly</p>
+      <div>
+        <p class="feature-eyebrow">TONE REWRITE</p>
+        <h2 class="feature-headline">23 tones. Any vibe.</h2>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Switch between Professional, Casual, Gen Z, Flirty, Scholarly, and 18 more — directly in your keyboard.</p>
+        <ul class="feature-bullets">
+          <li>23 fully customisable tones</li>
+          <li>Reorder and personalise your palette</li>
+          <li>Works in every text field</li>
+        </ul>
       </div>
-      
-      <!-- Card 5 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">◎</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Translate</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">16 languages, including Indian</p>
+    </div>
+
+    <!-- Feature 3: AI Assist -->
+    <div class="feature-row reveal" style="margin-top: 5rem;">
+      <div>
+        <p class="feature-eyebrow">AI ASSIST</p>
+        <h2 class="feature-headline">Do more than fix. Create.</h2>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Ask questions, generate smart auto-replies, humanize text, expand ideas, shorten messages, paraphrase, and more — all from within your keyboard.</p>
+        <ul class="feature-bullets">
+          <li>Auto Reply with sentiment control</li>
+          <li>Humanize, Expand, Shorten, Paraphrase</li>
+          <li>Premium: Hook, Viral, Pitch, and more</li>
+        </ul>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div class="demo-phone-frame">
+          <div class="demo-phone-inner">
+            <iframe class="demo-iframe" data-src="demo-assist.html" scrolling="no" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: Summarize -->
+    <div class="feature-row reverse reveal" style="margin-top: 5rem;">
+      <div style="display: flex; justify-content: center;">
+        <div class="demo-phone-frame">
+          <div class="demo-phone-inner">
+            <iframe class="demo-iframe" data-src="demo-summarize.html" scrolling="no" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="feature-eyebrow">SUMMARIZE</p>
+        <h2 class="feature-headline">Long messages, instantly short.</h2>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Paste any block of text and get a clean bullet-point summary in seconds.</p>
+        <ul class="feature-bullets">
+          <li>Long messages → clean bullets</li>
+          <li>Paste from anywhere, summarize in-keyboard</li>
+          <li>Works on articles, emails, threads</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Feature 5: Translate -->
+    <div class="feature-row reveal" style="margin-top: 5rem;">
+      <div>
+        <p class="feature-eyebrow">TRANSLATE</p>
+        <h2 class="feature-headline">Type in one language. Send in another.</h2>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Translate to and from 16 languages including Hindi, Tamil, Telugu, Malayalam, Bengali, and Kannada — without leaving your current app.</p>
+        <ul class="feature-bullets">
+          <li>16 languages including Indian regional</li>
+          <li>One-tap in-keyboard translation</li>
+          <li>No switching apps, no copying</li>
+        </ul>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div class="demo-phone-frame">
+          <div class="demo-phone-inner">
+            <iframe class="demo-iframe" data-src="demo-translate.html" scrolling="no" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -170,91 +221,123 @@
 <!-- TONE SHOWCASE -->
 <section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
   <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 0.5rem;">20+ Tones. One tap.</h2>
-    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">From boardroom to group chat — Noetic matches your voice.</p>
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">23 tones. One tap.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">From boardroom to group chat — match any voice, any moment.</p>
     
     <!-- Marquee Row 1 (Left to Right) -->
     <div class="marquee" style="margin-bottom: 1.5rem;">
       <div class="marquee-track">
         <span class="tone-pill blue">Professional</span>
         <span class="tone-pill violet">Casual</span>
-        <span class="tone-pill gold">Gen Z</span>
-        <span class="tone-pill blue">Funny</span>
-        <span class="tone-pill violet">Flirty</span>
-        <span class="tone-pill gold">Scholarly</span>
-        <span class="tone-pill blue">Empathetic</span>
-        <span class="tone-pill violet">Bold</span>
-        <span class="tone-pill gold">Poetic</span>
-        <span class="tone-pill blue">Diplomatic</span>
+        <span class="tone-pill gold">Polite</span>
+        <span class="tone-pill blue">Friendly</span>
+        <span class="tone-pill violet">Gen Z</span>
+        <span class="tone-pill gold">Funny</span>
+        <span class="tone-pill blue">Flirty</span>
+        <span class="tone-pill violet">Scholarly</span>
+        <span class="tone-pill gold">Academic</span>
+        <span class="tone-pill blue">Confident</span>
+        <span class="tone-pill violet">Diplomatic</span>
         <!-- Duplicated for continuous scroll -->
-        <span class="tone-pill violet">Professional</span>
-        <span class="tone-pill gold">Casual</span>
+        <span class="tone-pill gold">Professional</span>
+        <span class="tone-pill blue">Casual</span>
+        <span class="tone-pill violet">Polite</span>
+        <span class="tone-pill gold">Friendly</span>
         <span class="tone-pill blue">Gen Z</span>
         <span class="tone-pill violet">Funny</span>
         <span class="tone-pill gold">Flirty</span>
         <span class="tone-pill blue">Scholarly</span>
-        <span class="tone-pill violet">Empathetic</span>
-        <span class="tone-pill gold">Bold</span>
-        <span class="tone-pill blue">Poetic</span>
-        <span class="tone-pill violet">Diplomatic</span>
+        <span class="tone-pill violet">Academic</span>
+        <span class="tone-pill gold">Confident</span>
+        <span class="tone-pill blue">Diplomatic</span>
       </div>
     </div>
     
     <!-- Marquee Row 2 (Right to Left) -->
     <div class="marquee">
       <div class="marquee-track reverse">
-        <span class="tone-pill gold">Friendly</span>
+        <span class="tone-pill gold">Empathetic</span>
+        <span class="tone-pill blue">Humorous</span>
+        <span class="tone-pill violet">Persuasive</span>
+        <span class="tone-pill gold">Poetic</span>
         <span class="tone-pill blue">Sarcastic</span>
-        <span class="tone-pill violet">Motivational</span>
-        <span class="tone-pill gold">Formal</span>
-        <span class="tone-pill blue">Concise</span>
-        <span class="tone-pill violet">Romantic</span>
-        <span class="tone-pill gold">Assertive</span>
-        <span class="tone-pill blue">Witty</span>
-        <span class="tone-pill violet">Warm</span>
-        <span class="tone-pill gold">Playful</span>
-        <!-- Duplicated for continuous scroll -->
-        <span class="tone-pill blue">Friendly</span>
-        <span class="tone-pill violet">Sarcastic</span>
-        <span class="tone-pill gold">Motivational</span>
-        <span class="tone-pill blue">Formal</span>
-        <span class="tone-pill violet">Concise</span>
-        <span class="tone-pill gold">Romantic</span>
-        <span class="tone-pill blue">Assertive</span>
-        <span class="tone-pill violet">Witty</span>
-        <span class="tone-pill gold">Warm</span>
+        <span class="tone-pill violet">Sincere</span>
+        <span class="tone-pill gold">Witty</span>
+        <span class="tone-pill blue">Optimistic</span>
+        <span class="tone-pill violet">Supportive</span>
+        <span class="tone-pill gold">Urgent</span>
         <span class="tone-pill blue">Playful</span>
+        <span class="tone-pill violet">Direct</span>
+        <!-- Duplicated for continuous scroll -->
+        <span class="tone-pill gold">Empathetic</span>
+        <span class="tone-pill blue">Humorous</span>
+        <span class="tone-pill violet">Persuasive</span>
+        <span class="tone-pill gold">Poetic</span>
+        <span class="tone-pill blue">Sarcastic</span>
+        <span class="tone-pill violet">Sincere</span>
+        <span class="tone-pill gold">Witty</span>
+        <span class="tone-pill blue">Optimistic</span>
+        <span class="tone-pill violet">Supportive</span>
+        <span class="tone-pill gold">Urgent</span>
+        <span class="tone-pill blue">Playful</span>
+        <span class="tone-pill violet">Direct</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how-it-works" style="padding: 5rem 0;">
+<!-- AI ASSIST HIGHLIGHT -->
+<section class="section" style="padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Smart replies. Zero effort.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Noetic reads the message you received and writes the perfect reply — with the exact sentiment you want.</p>
+    
+    <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); max-width: 600px; margin: 0 auto;">
+      <div style="margin-bottom: 1.5rem;">
+        <p style="color: var(--text-tertiary); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Received</p>
+        <p style="font-size: 14px; color: var(--text-primary);">Can we reschedule the meeting to Thursday?</p>
+      </div>
+      
+      <div style="margin-bottom: 1.5rem; padding: 1rem; background: rgba(0,122,255,0.1); border-radius: var(--radius-md);">
+        <p style="color: var(--text-tertiary); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Noetic Auto Reply (Positive)</p>
+        <p style="font-size: 14px; color: var(--text-primary);">Absolutely, Thursday works great for me!</p>
+      </div>
+      
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn btn-primary" style="flex: 1;">Replace</button>
+        <button class="btn btn-ghost" style="flex: 1;">Copy</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS IN EVERY APP -->
+<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
   <div class="container reveal">
     <h2 style="text-align: center; margin-bottom: 3rem;">Works in every app.</h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;" class="reveal-group">
-      <!-- Step 1 -->
-      <div style="text-align: center;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⌨</div>
-        <h3 style="font-size: 18px; margin-bottom: 1rem;">Switch keyboards</h3>
-        <p style="font-size: 14px; color: var(--text-secondary);">Tap the globe icon on any iOS keyboard to switch to Noetic. Works instantly in Messages, Gmail, WhatsApp, Instagram — anywhere.</p>
+    <div class="orbit-container" style="margin-bottom: 3rem;">
+      <div class="orbit-ring orbit-ring-2" style="--radius: 220px; --start-angle: 0deg;">
+        <div class="orbit-icon" style="--start-angle: 0deg; --radius: 220px; background: #FF5E62;">X</div>
+        <div class="orbit-icon" style="--start-angle: 60deg; --radius: 220px; background: #5B59D3;">S</div>
+        <div class="orbit-icon" style="--start-angle: 120deg; --radius: 220px; background: #0088CC;">T</div>
+        <div class="orbit-icon" style="--start-angle: 180deg; --radius: 220px; background: #007AFF;">L</div>
+        <div class="orbit-icon" style="--start-angle: 240deg; --radius: 220px; background: #000000; border: 1px solid var(--border);">N</div>
+        <div class="orbit-icon" style="--start-angle: 300deg; --radius: 220px; background: #1DA1F2;">T</div>
       </div>
       
-      <!-- Step 2 -->
-      <div style="text-align: center;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✦</div>
-        <h3 style="font-size: 18px; margin-bottom: 1rem;">Tap your tool</h3>
-        <p style="font-size: 14px; color: var(--text-secondary);">Choose Fix, Tone, Assist, Summarize, or Translate. Noetic only processes text when you tap an action — never passively reading what you type.</p>
+      <div class="orbit-ring orbit-ring-1" style="--radius: 140px; --start-angle: 0deg;">
+        <div class="orbit-icon" style="--start-angle: 0deg; --radius: 140px; background: #075E54;">W</div>
+        <div class="orbit-icon" style="--start-angle: 90deg; --radius: 140px; background: #EA4335;">G</div>
+        <div class="orbit-icon" style="--start-angle: 180deg; --radius: 140px; background: #E1306C;">I</div>
+        <div class="orbit-icon" style="--start-angle: 270deg; --radius: 140px; background: #0A84FF;">i</div>
       </div>
       
-      <!-- Step 3 -->
-      <div style="text-align: center;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">◈</div>
-        <h3 style="font-size: 18px; margin-bottom: 1rem;">Replace or copy</h3>
-        <p style="font-size: 14px; color: var(--text-secondary);">Your text is rewritten in seconds. Tap Replace to insert it directly, or Copy to use it anywhere.</p>
-      </div>
+      <div class="orbit-phone"></div>
+    </div>
+    
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.8;">Switch keyboards with one tap. Noetic appears inside iMessage, WhatsApp, Gmail, Instagram, and every other app that uses the standard iOS keyboard — no switching apps, no copying.</p>
     </div>
   </div>
 </section>
@@ -301,137 +384,19 @@
   </div>
 </section>
 
-<!-- PRICING SECTION -->
-<section class="section" id="pricing" style="padding: 5rem 0;">
+<!-- FINAL CTA -->
+<section class="section" style="background: linear-gradient(135deg, rgba(0,122,255,0.1), rgba(168,85,247,0.1)); padding: 5rem 0;">
   <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 0.5rem;">Start free. Upgrade when ready.</h2>
-    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">No credit card required for free tier.</p>
+    <h2 style="text-align: center; margin-bottom: 2rem;">Start writing better today.</h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-      <!-- Free Tier -->
-      <div class="pricing-card">
-        <div class="pricing-header">
-          <div class="pricing-chip blue">FREE</div>
-        </div>
-        <div class="pricing-price">₹0</div>
-        <div class="pricing-subtext">forever</div>
-        <ul class="pricing-features">
-          <li>Limited daily corrections</li>
-          <li>All 5 AI tools included</li>
-          <li>16 translation languages</li>
-          <li>Earn credits by watching ads</li>
-        </ul>
-        <button class="btn btn-primary pricing-cta" onclick="window.location.href='#'">Download Free</button>
-        <p style="text-align: center; font-size: 12px; color: var(--text-tertiary); margin-top: 1rem;">No account required</p>
-      </div>
-      
-      <!-- Pro Tier -->
-      <div class="pricing-card pricing-popular">
-        <div class="pricing-header">
-          <div class="pricing-chip badge-popular">POPULAR</div>
-        </div>
-        <div class="pricing-price">Starting from ₹XX/month</div>
-        <!-- TODO: Update with actual StoreKit price before launch -->
-        <div class="pricing-subtext" style="margin-bottom: 0.5rem;">or ₹XX/year</div>
-        <div style="display: inline-block; background: rgba(0,122,255,0.2); border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 12px; color: var(--blue); margin-bottom: 1.5rem;">Save 25%</div>
-        <ul class="pricing-features">
-          <li>Generous daily corrections</li>
-          <li>Everything in Free</li>
-          <li>No ads</li>
-        </ul>
-        <button class="btn btn-gradient pricing-cta" onclick="window.location.href='#'">Get Pro</button>
-      </div>
-      
-      <!-- Premium Tier -->
-      <div class="pricing-card">
-        <div class="pricing-header">
-          <div class="pricing-chip gold">UNLIMITED</div>
-        </div>
-        <div class="pricing-price">Starting from ₹XX/month</div>
-        <!-- TODO: Update with actual StoreKit price before launch -->
-        <div class="pricing-subtext">or ₹XX/year</div>
-        <ul class="pricing-features">
-          <li>Unlimited corrections</li>
-          <li>Everything in Pro</li>
-          <li>Priority AI processing</li>
-          <li>Early access to new features</li>
-        </ul>
-        <button class="btn btn-primary pricing-cta" onclick="window.location.href='#'">Go Unlimited</button>
-      </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px; margin: 0 auto; margin-bottom: 2rem;">
+      <a href="#" style="display: block; text-align: center;">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+             alt="Download on the App Store" style="height: 54px; width: auto;">
+      </a>
     </div>
     
-    <div style="text-align: center; background: var(--surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
-      <p style="font-size: 13px; color: var(--text-secondary);">Pricing shown in Indian Rupees. Available via in-app purchase on the App Store.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ SECTION -->
-<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
-  <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 3rem;">Questions? Answered.</h2>
-    
-    <div style="max-width: 700px; margin: 0 auto;">
-      <!-- FAQ Item 1 -->
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>How do I enable the Noetic keyboard?</span>
-          <div class="accordion-chevron">▼</div>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-text">Settings → General → Keyboard → Keyboards → Add New Keyboard → Noetic. Then tap Noetic in the list and enable "Allow Full Access."</div>
-        </div>
-      </div>
-      
-      <!-- FAQ Item 2 -->
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>Why does Noetic need Full Access?</span>
-          <div class="accordion-chevron">▼</div>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-text">Full Access allows the keyboard to connect to the internet for AI processing. Without it, the AI tools cannot function. This permission is never used to log your keystrokes or access your private data.</div>
-        </div>
-      </div>
-      
-      <!-- FAQ Item 3 -->
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>How do credits work?</span>
-          <div class="accordion-chevron">▼</div>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-text">Every AI action uses one credit. Free users receive a daily credit allowance that resets at midnight. You can earn extra credits by watching a short rewarded video. Pro and Premium subscribers get higher daily limits or unlimited usage.</div>
-          <!-- TODO: Confirm exact credit limits from codebase before launch -->
-        </div>
-      </div>
-      
-      <!-- FAQ Item 4 -->
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>Is my text data private?</span>
-          <div class="accordion-chevron">▼</div>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-text">Yes. We only send text to our AI when you explicitly tap an action button. We never log what you type passively. Processed text is discarded immediately and not stored.</div>
-        </div>
-      </div>
-      
-      <!-- FAQ Item 5 -->
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>What languages does Translate support?</span>
-          <div class="accordion-chevron">▼</div>
-        </button>
-        <div class="accordion-content">
-          <div class="accordion-text">English, Hindi, Spanish, French, German, Arabic, Chinese, Japanese, Korean, Portuguese, Tamil, Telugu, Malayalam, Bengali, Kannada, and Italian — 16 languages total.</div>
-        </div>
-      </div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 2rem;">
-      <a href="support.html" class="btn btn-ghost" style="display: inline-flex;">See all FAQs →</a>
-    </div>
+    <p style="text-align: center; font-size: 14px; color: var(--text-secondary);">Free to start. No credit card required.</p>
   </div>
 </section>
 
@@ -452,11 +417,11 @@
     <div class="footer-column">
       <h4>Product</h4>
       <ul>
-        <li><a href="#features">Grammar Fix</a></li>
-        <li><a href="#features">Tone Rewrite</a></li>
-        <li><a href="#features">AI Assist</a></li>
-        <li><a href="#features">Summarize</a></li>
-        <li><a href="#features">Translate</a></li>
+        <li><a href="index.html#features-section">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#features-section">AI Assist</a></li>
+        <li><a href="index.html#features-section">Summarize</a></li>
+        <li><a href="index.html#features-section">Translate</a></li>
       </ul>
     </div>
     
@@ -465,8 +430,8 @@
       <h4>Company</h4>
       <ul>
         <li><a href="about.html">About</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
         <li><a href="support.html">Support</a></li>
       </ul>
     </div>
@@ -475,9 +440,24 @@
     <div class="footer-column">
       <h4>Connect</h4>
       <ul>
-        <li><a href="https://www.instagram.com/noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://www.threads.com/@noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Threads</a></li>
-        <li><a href="mailto:noeticaikeyboard@gmail.com">Email</a></li>
+        <li><a href="https://www.instagram.com/noetic_aikeyboard" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12 6.63 0 12-5.37 12-12 0-6.63-5.37-12-12-12zm5.521 17.708c-.808.607-1.908.96-3.04.96-2.33 0-4.226-1.896-4.226-4.226 0-2.33 1.896-4.226 4.226-4.226 2.33 0 4.226 1.896 4.226 4.226 0 1.132-.353 2.232-.96 3.04zm1.254-7.218c-.303 0-.546.243-.546.546v1.368c0 .303.243.546.546.546h1.368c.303 0 .546-.243.546-.546v-1.368c0-.303-.243-.546-.546-.546h-1.368zM12 15.13c-1.723 0-3.13-1.407-3.13-3.13 0-1.723 1.407-3.13 3.13-3.13 1.723 0 3.13 1.407 3.13 3.13 0 1.723-1.407 3.13-3.13 3.13zm4.226-8.917H7.774c-1.532 0-2.774 1.242-2.774 2.774v4.452c0 1.532 1.242 2.774 2.774 2.774h8.452c1.532 0 2.774-1.242 2.774-2.774V7.989c0-1.532-1.242-2.774-2.774-2.774z"/>
+          </svg>
+          Instagram
+        </a></li>
+        <li><a href="https://www.threads.net/@noetic_aikeyboard" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm3.5 9c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-7 0c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5z"/>
+          </svg>
+          Threads
+        </a></li>
+        <li><a href="mailto:noeticaikeyboard@gmail.com" class="social-link">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm6 9h-5V6h5v3zm0 3h-5v3h5v-3zM6 6h5v3H6V6zm0 6h5v3H6v-3z"/>
+          </svg>
+          Email
+        </a></li>
       </ul>
     </div>
   </div>
