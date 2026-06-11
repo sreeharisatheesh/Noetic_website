@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noetic Summarize Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: -apple-system, "SF Pro Rounded", BlinkMacSystemFont, sans-serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Glow Aura */
+        .glow-aura {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glow-primary {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 165, 0, 0.22) 0%, rgba(255, 165, 0, 0.04) 20%, transparent 70%);
+            filter: blur(12px);
+            margin-top: -20px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .glow-secondary {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(128, 0, 128, 0.06);
+            filter: blur(40px);
+            position: absolute;
+            margin-left: -90px;
+            margin-top: 60px;
+        }
+
+        .glow-tertiary {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255, 255, 0, 0.07);
+            filter: blur(35px);
+            position: absolute;
+            margin-left: 80px;
+            margin-top: 80px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.12; }
+            50% { opacity: 0.22; }
+        }
+
+        /* Particle Layer */
+        .particle-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 165, 0, 0.45);
+            filter: blur(0.5px);
+            opacity: 0;
+        }
+
+        /* Headline */
+        .headline {
+            position: absolute;
+            top: 58px;
+            left: 28px;
+            z-index: 10;
+        }
+
+        .headline-line1 {
+            font-size: 44px;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s cubic-bezier(0.33, 1, 0.68, 1), transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .headline-line2 {
+            font-size: 44px;
+            font-weight: bold;
+            color: #FFA500;
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s cubic-bezier(0.33, 1, 0.68, 1), transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .headline-sub {
+            font-size: 17px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.42);
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 230px;
+            height: 498px;
+            background: rgba(10, 10, 26, 1);
+            border-radius: 44px;
+            transform: translate(-50%, -50%) scale(0.82);
+            opacity: 0;
+            transform-origin: center;
+            transition: opacity 0.65s cubic-bezier(0.33, 1, 0.68, 1), transform 0.65s cubic-bezier(0.33, 1, 0.68, 1);
+            box-shadow: 0 12px 22px rgba(255, 165, 0, 0.3), 0 18px 35px rgba(0, 0, 0, 0.55);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            overflow: visible;
+            z-index: 5;
+        }
+
+        .phone-mockup.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0.82);
+        }
+
+        .dynamic-island {
+            width: 90px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 13px;
+            margin: 8px auto 0;
+        }
+
+        .phone-glass {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), transparent);
+            border-radius: 44px;
+            pointer-events: none;
+        }
+
+        .volume-buttons {
+            position: absolute;
+            left: -3px;
+            top: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .volume-btn {
+            width: 3px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.14);
+            border-radius: 1.5px;
+        }
+
+        .power-button {
+            position: absolute;
+            right: -3px;
+            top: 90px;
+            width: 3px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.14);
+            border-radius: 1.5px;
+        }
+
+        /* Chat Area */
+        .chat-area {
+            padding: 20px 12px 6px;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .chat-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #FFA500, #800080);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-avatar span {
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .chat-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .chat-status {
+            width: 5px;
+            height: 5px;
+            background: #00FF00;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+
+        .chat-bubbles {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 0 10px;
+        }
+
+        .bubble {
+            padding: 7px 10px;
+            border-radius: 11px;
+            font-size: 11px;
+            max-width: 80%;
+        }
+
+        .bubble-incoming {
+            background: rgba(255, 255, 255, 0.09);
+            color: rgba(255, 255, 255, 0.8);
+            align-self: flex-start;
+        }
+
+        .bubble-outgoing {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bubble-long {
+            position: relative;
+        }
+
+        .bubble-long.highlighted {
+            transform: scale(1.03);
+            box-shadow: 0 0 12px rgba(255, 165, 0, 0.45);
+            transition: transform 0.35s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .bubble-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 11px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .bubble-overlay.visible {
+            opacity: 1;
+        }
+
+        /* Context Menu */
+        .context-menu {
+            position: absolute;
+            top: 15px;
+            right: -15px;
+            width: 125px;
+            background: rgba(35, 35, 45, 0.95);
+            border-radius: 14px;
+            border: 0.5px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .context-menu.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            font-size: 11px;
+            color: white;
+        }
+
+        .menu-item.highlighted {
+            font-weight: 600;
+            color: #FFA500;
+            background: rgba(255, 165, 0, 0.15);
+            border-radius: 8px;
+            padding: 6px 8px;
+            margin: 2px 4px;
+            border: 0.5px solid rgba(255, 165, 0, 0.5);
+        }
+
+        .menu-item.highlighted.pressed {
+            transform: scale(0.9);
+        }
+
+        .menu-item.destructive {
+            color: #FF0000;
+        }
+
+        .menu-divider {
+            height: 0.5px;
+            background: rgba(255, 255, 255, 0.12);
+            margin: 0 4px;
+        }
+
+        /* Keyboard Spacer */
+        .keyboard-spacer {
+            height: 8px;
+            transition: height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .keyboard-spacer.popped {
+            height: 223px;
+        }
+
+        /* Mock Keyboard - positioned OUTSIDE phone mockup */
+        .mock-keyboard {
+            position: absolute;
+            top: 498px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.88);
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), top 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+            width: 264px;
+            height: 215px;
+            background: rgb(30, 30, 40);
+            border-radius: 18px;
+            overflow: hidden;
+            padding: 4px 0 6px;
+            box-shadow: 0 14px 24px rgba(0, 0, 0, 0.65);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            z-index: 50;
+        }
+
+        .mock-keyboard.visible {
+            top: 275px;
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Summarize Keyboard */
+        .summarize-keyboard {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .summarize-header {
+            display: flex;
+            align-items: center;
+            height: 44px;
+            background: rgb(20, 20, 30);
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+            padding: 0 8px;
+        }
+
+        .brand-chip {
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            min-height: 24px;
+        }
+
+        .brand-chip img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .header-divider {
+            width: 0.5px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.12);
+            flex-shrink: 0;
+        }
+
+        .tab-bar {
+            display: flex;
+            flex: 1;
+        }
+
+        .tab-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1), transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+            position: relative;
+        }
+
+        .tab-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-btn.active {
+            color: white;
+        }
+
+        .tab-btn.active::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            right: 2px;
+            bottom: -2px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            border: 0.5px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .tab-btn-icon {
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-btn-icon svg {
+            fill: currentColor;
+        }
+
+        .tab-btn-label {
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+        /* Summarize keyboard tabs are always visible (no cascade animation) */
+        .summarize-keyboard .tab-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-card {
+            flex: 1;
+            padding: 4px 6px 4px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            border: 0.5px solid rgba(255, 255, 255, 0.06);
+            margin: 0 6px;
+            height: 172px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .card-body {
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-card-processing {
+            padding: 10px 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .loading-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .loading-spinner {
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+
+        .loading-spinner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1.2px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .loading-spinner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1.2px solid transparent;
+            border-top-color: rgba(255, 255, 255, 0.45);
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .loading-dot {
+            width: 3.5px;
+            height: 3.5px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 50%;
+            animation: dotPulse 0.5s ease-in-out infinite;
+        }
+
+        .loading-dot:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .loading-dot:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(0.5); }
+            50% { transform: scale(1); }
+        }
+
+        .skeleton-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 2px;
+            opacity: 0.25;
+            animation: skeletonPulse 0.8s ease-in-out infinite;
+        }
+
+        @keyframes skeletonPulse {
+            0%, 100% { opacity: 0.25; }
+            50% { opacity: 0.55; }
+        }
+
+        .skeleton-line {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 3px;
+        }
+
+        .skeleton-line.short {
+            width: 120px;
+        }
+
+        /* Summarize CTA */
+        .summarize-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px 12px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            transition: transform 0.22s cubic-bezier(0.33, 1, 0.68, 1), background 0.3s, border-color 0.3s;
+            align-self: stretch;
+        }
+
+        .summarize-cta.glowing {
+            animation: ctaGlow 0.6s ease-in-out infinite;
+        }
+
+        .summarize-cta.pressed {
+            transform: scale(0.9);
+        }
+
+        @keyframes ctaGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 165, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); }
+        }
+
+        /* Clipboard Card */
+        .clipboard-card {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .clipboard-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+
+        .clipboard-header span:first-child {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .clipboard-header span:last-child {
+            font-size: 9px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .clipboard-text {
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            margin-bottom: 2px;
+        }
+
+        /* Format Selector */
+        .format-selector {
+            display: flex;
+            padding: 1px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 6px;
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .format-btn {
+            flex: 1;
+            font-size: 10px;
+            padding: 4px 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.45);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .format-btn.selected {
+            font-weight: bold;
+            color: white;
+            background: rgba(255, 255, 255, 0.12);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Result Card */
+        .result-text {
+            font-size: 9px;
+            font-weight: 500;
+            color: white;
+            line-height: 1.4;
+            padding: 4px 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            text-align: left;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            word-break: break-word;
+        }
+
+        .result-text::-webkit-scrollbar {
+            display: none;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .action-btn {
+            display: flex;
+            gap: 3px;
+            padding: 4px 5px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .copy-btn {
+            display: flex;
+            gap: 3px;
+            padding: 4px 7px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            font-size: 8px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        /* Fade All */
+        .fade-all {
+            opacity: 0 !important;
+            transform: scale(0.93) !important;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Glow Aura -->
+        <div class="glow-aura" id="glowAura">
+            <div class="glow-primary"></div>
+            <div class="glow-secondary"></div>
+            <div class="glow-tertiary"></div>
+        </div>
+
+        <!-- Particle Layer -->
+        <div class="particle-layer" id="particleLayer"></div>
+
+        <!-- Headline -->
+        <div class="headline">
+            <div class="headline-line1" id="line1">Long messages?</div>
+            <div class="headline-line2" id="line2">Don't skip.</div>
+            <div class="headline-sub" id="sub">Get the facts without the filler.</div>
+        </div>
+
+        <!-- Phone Mockup -->
+        <div class="phone-mockup" id="phone">
+            <div class="phone-glass"></div>
+            <div class="dynamic-island"></div>
+            
+            <!-- Volume Buttons -->
+            <div class="volume-buttons">
+                <div class="volume-btn"></div>
+                <div class="volume-btn"></div>
+            </div>
+            
+            <!-- Power Button -->
+            <div class="power-button"></div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="chat-avatar">
+                        <span>R</span>
+                    </div>
+                    <div class="chat-name">Ralph</div>
+                    <div class="chat-status"></div>
+                </div>
+                <div class="chat-bubbles">
+                    <div class="bubble bubble-incoming">Hey! Did you hear about the meeting?</div>
+                    <div class="bubble bubble-outgoing">No, what happened?</div>
+                    <div class="bubble bubble-incoming bubble-long" id="longBubble">
+                        <div class="bubble-overlay" id="bubbleOverlay"></div>
+                        Hey! The launch event has been shifted. We discussed the feedback from the client at our main office. We have to push the launch date to next Wednesday, June 3rd at 10:00 AM at the San Francisco office because of some last-minute UI changes and we need to fix the alignment of the onboarding screens and also add a new tone screen to make it premium.
+                        <div class="context-menu" id="contextMenu">
+                            <div class="menu-item">
+                                <span>Reply</span>
+                                <span>↩</span>
+                            </div>
+                            <div class="menu-divider"></div>
+                            <div class="menu-item highlighted" id="copyOption">
+                                <span>Copy</span>
+                                <span>📋</span>
+                            </div>
+                            <div class="menu-divider"></div>
+                            <div class="menu-item">
+                                <span>Forward</span>
+                                <span>↪</span>
+                            </div>
+                            <div class="menu-divider"></div>
+                            <div class="menu-item destructive">
+                                <span>Delete</span>
+                                <span>🗑</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Spacer -->
+            <div class="keyboard-spacer" id="keyboardSpacer"></div>
+
+            <!-- Mock Keyboard - positioned inside phone-mockup -->
+            <div class="mock-keyboard" id="mockKeyboard">
+            <!-- Summarize Keyboard -->
+            <div class="summarize-keyboard">
+                <div class="summarize-header">
+                    <div class="brand-chip"><img src="noetic-logo.png"></div>
+                    <div class="header-divider"></div>
+                    <div class="tab-bar">
+                        <div class="tab-btn" id="tab1">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                            <span class="tab-btn-label">Fix</span>
+                        </div>
+                        <div class="tab-btn" id="tab2">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="8" width="2.5" height="8" rx="1"/><rect x="6.5" y="5" width="2.5" height="14" rx="1"/><rect x="11" y="2" width="2.5" height="20" rx="1"/><rect x="15.5" y="5" width="2.5" height="14" rx="1"/><rect x="20" y="8" width="2.5" height="8" rx="1"/></svg></span>
+                            <span class="tab-btn-label">Tone</span>
+                        </div>
+                        <div class="tab-btn" id="tab3">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.5 9H22L16 13.5L18.5 21L12 16.5L5.5 21L8 13.5L2 9H9.5L12 2z"/></svg></span>
+                            <span class="tab-btn-label">Assist</span>
+                        </div>
+                        <div class="tab-btn active" id="tab4">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
+                            <span class="tab-btn-label">Summarize</span>
+                        </div>
+                        <div class="tab-btn" id="tab5">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 8.85 6.75 7.14c-.36-.96-.52-2.03-.5-3.14H4.25c.02 1.48.34 2.82.95 4 .6 1.16 1.46 2.21 2.54 3.14C9.64 16.5 12.87 15.07 12.87 15.07zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg></span>
+                            <span class="tab-btn-label">Translate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-card" id="contentCard">
+                    <div class="summarize-cta" id="summarizeCta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        <span>Paste & Summarize</span>
+                    </div>
+                    <div class="card-body" id="cardBody">
+                        <div class="clipboard-card">
+                            <div class="clipboard-header">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                                <span>Clipboard text:</span>
+                            </div>
+                            <div class="clipboard-text">"So basically my manager called and the whole team got on and we discussed the feedback..."</div>
+                            <div class="format-selector">
+                                <div class="format-btn selected" data-format="normal">Normal</div>
+                                <div class="format-btn" data-format="bullets">Bullets</div>
+                                <div class="format-btn" data-format="oneline">One line</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Constants
+        const RESULT_TEXT = "• Launch date shifted to next Wednesday, June 3rd\n• Event time: 10:00 AM\n• Location: San Francisco office (555 Mission St)\n• Delay caused by UI alignments and Tone screen";
+
+        // State
+        let loopToken = Date.now();
+        let keyboardState = 'hidden';
+        let isProcessing = false;
+        let isSummarizeButtonGlowing = false;
+        let isSummarizeButtonPressed = false;
+        let isCopyOptionHighlighted = false;
+        let isCopyOptionPressed = false;
+        let showMenu = false;
+        let isMessageHighlighted = false;
+        let resultText = "";
+        let selectedFormat = "normal";
+        let fadeAll = false;
+
+        // DOM Elements
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const sub = document.getElementById('sub');
+        const phone = document.getElementById('phone');
+        const keyboardSpacer = document.getElementById('keyboardSpacer');
+        const mockKeyboard = document.getElementById('mockKeyboard');
+        const contentCard = document.getElementById('contentCard');
+        const cardBody = document.getElementById('cardBody');
+        const summarizeCta = document.getElementById('summarizeCta');
+        const longBubble = document.getElementById('longBubble');
+        const bubbleOverlay = document.getElementById('bubbleOverlay');
+        const contextMenu = document.getElementById('contextMenu');
+        const copyOption = document.getElementById('copyOption');
+        const container = document.getElementById('container');
+        const glowAura = document.getElementById('glowAura');
+
+        function positionGlow() {
+            const phoneRect = phone.getBoundingClientRect();
+            const contRect = container.getBoundingClientRect();
+            glowAura.style.top = (phoneRect.top + phoneRect.height / 2 - contRect.top) + 'px';
+            glowAura.style.left = (phoneRect.left + phoneRect.width / 2 - contRect.left) + 'px';
+        }
+
+        // Particle layer
+        const particleConfigs = [
+            { rx: 0.11, ry: 0.13, size: 3.0, dx: 7, dy: -5, dur: 4.2 },
+            { rx: 0.89, ry: 0.10, size: 2.5, dx: -6, dy: 8, dur: 3.8 },
+            { rx: 0.06, ry: 0.58, size: 2.0, dx: 5, dy: 6, dur: 4.6 },
+            { rx: 0.94, ry: 0.54, size: 3.5, dx: -8, dy: -4, dur: 3.5 },
+            { rx: 0.46, ry: 0.06, size: 2.0, dx: 4, dy: 7, dur: 5.1 },
+            { rx: 0.75, ry: 0.81, size: 2.5, dx: -5, dy: -6, dur: 4.0 },
+        ];
+
+        function initParticles() {
+            const layer = document.getElementById('particleLayer');
+            particleConfigs.forEach((config, i) => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = config.size + 'px';
+                particle.style.height = config.size + 'px';
+                particle.style.left = (config.rx * window.innerWidth) + 'px';
+                particle.style.top = (config.ry * window.innerHeight) + 'px';
+                layer.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.style.transition = 'opacity 0.7s ease-in';
+                    particle.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        particle.style.transition = `transform ${config.dur}s ease-in-out infinite alternate`;
+                        particle.style.transform = `translate(${config.dx}px, ${config.dy}px)`;
+                    }, 100);
+                }, (i * 140) + 250);
+            });
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function cancelled() {
+            return false;
+        }
+
+        function resetScene() {
+            isProcessing = false;
+            isSummarizeButtonGlowing = false;
+            isSummarizeButtonPressed = false;
+            isCopyOptionHighlighted = false;
+            isCopyOptionPressed = false;
+            showMenu = false;
+            isMessageHighlighted = false;
+            resultText = "";
+            selectedFormat = "normal";
+            keyboardState = 'hidden';
+            fadeAll = false;
+
+            // Reset UI
+            keyboardSpacer.classList.remove('popped');
+            mockKeyboard.classList.remove('visible');
+            container.classList.remove('fade-all');
+            longBubble.classList.remove('highlighted');
+            bubbleOverlay.classList.remove('visible');
+            contextMenu.classList.remove('visible');
+            copyOption.classList.remove('highlighted', 'pressed');
+            summarizeCta.classList.remove('glowing', 'pressed');
+
+            // Reset format buttons
+            document.querySelectorAll('.format-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.dataset.format === 'normal') {
+                    btn.classList.add('selected');
+                }
+            });
+
+            // Reset button text
+            summarizeCta.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span>Paste & Summarize</span>
+            `;
+
+            // Reset card body
+            cardBody.innerHTML = `
+                <div class="clipboard-card">
+                    <div class="clipboard-header">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        <span>Clipboard text:</span>
+                    </div>
+                    <div class="clipboard-text">"So basically my manager called and the whole team got on and we discussed the feedback..."</div>
+                    <div class="format-selector">
+                        <div class="format-btn selected" data-format="normal">Normal</div>
+                        <div class="format-btn" data-format="bullets">Bullets</div>
+                        <div class="format-btn" data-format="oneline">One line</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectFormat(format) {
+            selectedFormat = format;
+            document.querySelectorAll('.format-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.dataset.format === format) {
+                    btn.classList.add('selected');
+                }
+            });
+        }
+
+        async function runLoop() {
+            const token = Date.now();
+            loopToken = token;
+            resetScene();
+
+            // Entry animations
+            await sleep(400);
+            if (cancelled()) return;
+            
+            line1.style.opacity = '1';
+            line1.style.transform = 'translateY(0)';
+            
+            await sleep(130);
+            if (cancelled()) return;
+            
+            line2.style.opacity = '1';
+            line2.style.transform = 'translateY(0)';
+            
+            await sleep(150);
+            if (cancelled()) return;
+            
+            sub.style.opacity = '1';
+            sub.style.transform = 'translateY(0)';
+            
+            await sleep(890);
+            if (cancelled()) return;
+            
+            phone.classList.add('visible');
+            
+            await sleep(2650);
+            if (cancelled()) return;
+
+            // Show context menu
+            isMessageHighlighted = true;
+            longBubble.classList.add('highlighted');
+            
+            await sleep(400);
+            if (cancelled()) return;
+
+            showMenu = true;
+            bubbleOverlay.classList.add('visible');
+            contextMenu.classList.add('visible');
+            
+            await sleep(500);
+            if (cancelled()) return;
+
+            // Highlight copy option
+            isCopyOptionHighlighted = true;
+            copyOption.classList.add('highlighted');
+            
+            await sleep(800);
+            if (cancelled()) return;
+
+            // Press copy option
+            isCopyOptionPressed = true;
+            copyOption.classList.add('pressed');
+            
+            await sleep(150);
+            if (cancelled()) return;
+
+            isCopyOptionPressed = false;
+            copyOption.classList.remove('pressed');
+            
+            // Hide menu
+            showMenu = false;
+            bubbleOverlay.classList.remove('visible');
+            contextMenu.classList.remove('visible');
+            isMessageHighlighted = false;
+            longBubble.classList.remove('highlighted');
+            isCopyOptionHighlighted = false;
+            copyOption.classList.remove('highlighted');
+            
+            await sleep(650);
+            if (cancelled()) return;
+
+            // Show keyboard
+            keyboardState = 'popped';
+            keyboardSpacer.classList.add('popped');
+            mockKeyboard.classList.add('visible');
+            
+            // CTA text transitions from "Paste & Summarize" to "Summarize"
+            summarizeCta.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span>Summarize</span>
+            `;
+
+            await sleep(1200);
+            if (cancelled()) return;
+
+            // Toggle format from Normal to Bullets
+            selectFormat('bullets');
+            await sleep(800);
+            if (cancelled()) return;
+
+            // Summarize button glow
+            isSummarizeButtonGlowing = true;
+            summarizeCta.classList.add('glowing');
+            
+            await sleep(800);
+            if (cancelled()) return;
+
+            // Summarize button press
+            isSummarizeButtonGlowing = false;
+            summarizeCta.classList.remove('glowing');
+            isSummarizeButtonPressed = true;
+            summarizeCta.classList.add('pressed');
+            
+            await sleep(150);
+            if (cancelled()) return;
+
+            isSummarizeButtonPressed = false;
+            summarizeCta.classList.remove('pressed');
+            isProcessing = true;
+            
+            // Show loading in card body (button stays at top)
+            cardBody.innerHTML = `
+                <div class="content-card-processing">
+                    <div class="loading-header">
+                        <div class="loading-spinner"></div>
+                        <span class="loading-text">Noetic is thinking</span>
+                        <div class="loading-dots">
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-lines">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                </div>
+            `;
+
+            await sleep(1500);
+            if (cancelled()) return;
+
+            // Show result (bullets) in card body (button stays at top)
+            isProcessing = false;
+            resultText = RESULT_TEXT;
+
+            // Update button to "Summarized" state
+            summarizeCta.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Summarized</span>
+            `;
+            summarizeCta.style.background = 'rgba(255, 165, 0, 0.15)';
+            summarizeCta.style.borderColor = 'rgba(255, 165, 0, 0.3)';
+            
+            cardBody.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 4px; height: 100%;">
+                    <div class="result-text">${RESULT_TEXT}</div>
+                    <div class="result-actions">
+                        <div class="action-btn">
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255,255,255,0.6);"><path d="M12 8V4L8 8l4 4V9c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                            <span>New</span>
+                        </div>
+                        <div style="flex: 1;"></div>
+                        <div class="copy-btn">
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="color: white;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            <span>Copy</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            await sleep(2400);
+            if (cancelled()) return;
+
+            fadeAll = true;
+            container.classList.add('fade-all');
+            
+            await sleep(1000);
+            if (cancelled()) return;
+
+            // Restart loop
+            await runLoop();
+        }
+
+        // Start
+        positionGlow();
+        window.addEventListener('resize', positionGlow);
+        initParticles();
+        setTimeout(runLoop, 2650);
+    </script>
+</body>
+</html>

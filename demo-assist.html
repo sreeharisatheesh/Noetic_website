@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noetic Assist Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: -apple-system, "SF Pro Rounded", BlinkMacSystemFont, sans-serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Glow Aura */
+        .glow-aura {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glow-primary {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(88, 86, 214, 0.22) 0%, rgba(88, 86, 214, 0.04) 20%, transparent 70%);
+            filter: blur(12px);
+            margin-top: -20px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .glow-secondary {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.06);
+            filter: blur(40px);
+            position: absolute;
+            margin-left: -90px;
+            margin-top: 60px;
+        }
+
+        .glow-tertiary {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(128, 0, 128, 0.07);
+            filter: blur(35px);
+            position: absolute;
+            margin-left: 80px;
+            margin-top: 80px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.12; }
+            50% { opacity: 0.22; }
+        }
+
+        /* Particle Layer */
+        .particle-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(88, 86, 214, 0.45);
+            filter: blur(0.5px);
+            opacity: 0;
+        }
+
+        /* Headline */
+        .headline {
+            position: absolute;
+            top: 58px;
+            left: 28px;
+            z-index: 10;
+        }
+
+        .headline-line1 {
+            font-size: 44px;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s cubic-bezier(0.33, 1, 0.68, 1), transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .headline-line2 {
+            font-size: 44px;
+            font-weight: bold;
+            color: #5856D6;
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s cubic-bezier(0.33, 1, 0.68, 1), transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .headline-sub {
+            font-size: 17px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.42);
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 230px;
+            height: 498px;
+            background: rgba(10, 10, 26, 1);
+            border-radius: 44px;
+            transform: translate(-50%, -50%) scale(0.82);
+            opacity: 0;
+            transform-origin: center;
+            transition: opacity 0.65s cubic-bezier(0.33, 1, 0.68, 1), transform 0.65s cubic-bezier(0.33, 1, 0.68, 1);
+            box-shadow: 0 12px 22px rgba(88, 86, 214, 0.3), 0 18px 35px rgba(0, 0, 0, 0.55);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            overflow: visible;
+            z-index: 5;
+        }
+
+        .phone-mockup.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0.82);
+        }
+
+        .phone-mockup.assist-border {
+            border-color: rgba(88, 86, 214, 0.15);
+        }
+
+        .dynamic-island {
+            width: 90px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 13px;
+            margin: 8px auto 0;
+        }
+
+        .phone-glass {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), transparent);
+            border-radius: 44px;
+            pointer-events: none;
+        }
+
+        .volume-buttons {
+            position: absolute;
+            left: -3px;
+            top: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .volume-btn {
+            width: 3px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.14);
+            border-radius: 1.5px;
+        }
+
+        .power-button {
+            position: absolute;
+            right: -3px;
+            top: 110px;
+            width: 3px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.14);
+            border-radius: 1.5px;
+        }
+
+        /* Chat Area */
+        .chat-area {
+            padding: 20px 12px 6px;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .chat-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #5856D6, #800080);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-avatar span {
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .chat-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .chat-status {
+            width: 5px;
+            height: 5px;
+            background: #00FF00;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+
+        .chat-bubbles {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 0 10px;
+        }
+
+        .bubble {
+            padding: 7px 10px;
+            border-radius: 11px;
+            font-size: 11px;
+            max-width: 80%;
+        }
+
+        .bubble-incoming {
+            background: rgba(255, 255, 255, 0.09);
+            color: rgba(255, 255, 255, 0.8);
+            align-self: flex-start;
+        }
+
+        .bubble-sent {
+            background: #5856D6;
+            color: white;
+            align-self: flex-end;
+            opacity: 0;
+            transform: scale(0.82) translate(8px, 4px);
+            transition: opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1), transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .bubble-sent.visible {
+            opacity: 1;
+            transform: scale(1) translate(0, 0);
+        }
+
+        /* Keyboard Spacer */
+        .keyboard-spacer {
+            height: 8px;
+            transition: height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .keyboard-spacer.popped {
+            height: 223px;
+        }
+
+        /* Mock Keyboard - positioned inside phone-mockup using top, fully opaque */
+        .mock-keyboard {
+            position: absolute;
+            top: 498px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.88);
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), top 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+            width: 264px;
+            height: 215px;
+            background: rgb(30, 30, 40);
+            backdrop-filter: none;
+            border-radius: 18px;
+            overflow: hidden;
+            padding: 4px 0 6px;
+            box-shadow: 0 14px 24px rgba(0, 0, 0, 0.65);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            z-index: 50;
+        }
+
+        .mock-keyboard.visible {
+            top: 275px;
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Standard Keyboard */
+        .standard-keyboard {
+            padding: 0;
+        }
+
+        .suggestions-bar {
+            display: flex;
+            height: 26px;
+            background: rgb(25, 25, 35);
+        }
+
+        .suggestion {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.8);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .suggestion:last-child {
+            border-right: none;
+        }
+
+        .qwerty-row {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 0 3px;
+            margin-top: 6px;
+        }
+
+        .key {
+            width: 22px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+            position: relative;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+            transition: background 0.08s ease-out;
+        }
+
+        .key.highlighted {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .key-popup {
+            position: absolute;
+            width: 26px;
+            height: 36px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 14px;
+            font-weight: 500;
+            pointer-events: none;
+            z-index: 200;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: transform 0.08s ease-out, opacity 0.08s ease-out;
+        }
+
+        .key-popup.visible {
+            opacity: 0.92;
+            transform: scale(1);
+        }
+
+        .key-space {
+            width: 120px;
+        }
+
+        .key-special {
+            width: 34px;
+        }
+
+        .key-return {
+            width: 56px;
+            background: rgb(88, 86, 214);
+        }
+
+        .bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 24px;
+            padding: 0 12px 2px;
+            background: rgb(30, 30, 40);
+        }
+
+        .bottom-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+        }
+
+        .home-indicator {
+            width: 70px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 2px;
+            margin-bottom: 6px;
+        }
+
+        /* Noetic Keyboard */
+        .noetic-keyboard {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .noetic-header {
+            display: flex;
+            align-items: center;
+            height: 44px;
+            background: rgb(20, 20, 30);
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+            padding: 0 8px;
+        }
+
+        .brand-chip {
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            min-height: 24px;
+        }
+
+        .brand-chip img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .header-divider {
+            width: 0.5px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.12);
+            flex-shrink: 0;
+        }
+
+        .tab-bar {
+            display: flex;
+            flex: 1;
+        }
+
+        .tab-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1), transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+            position: relative;
+        }
+
+        .tab-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-btn.active {
+            color: white;
+        }
+
+        .tab-btn.active::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            right: 2px;
+            bottom: -2px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            border: 0.5px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .tab-btn-icon {
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-btn-icon svg {
+            fill: currentColor;
+        }
+
+        .tab-btn-label {
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+        .assist-chips-row {
+            display: flex;
+            gap: 6px;
+            padding: 6px 8px;
+            height: 44px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .assist-chips-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .assist-chip {
+            display: flex;
+            gap: 4px;
+            padding: 4px 10px;
+            height: 30px;
+            border-radius: 15px;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.08);
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1), background 0.2s, color 0.2s;
+        }
+
+        .assist-chip.selected {
+            color: white;
+            background: rgb(88, 86, 214);
+        }
+
+        .assist-chip.glowing {
+            animation: assistGlow 0.6s ease-in-out infinite;
+        }
+
+        .assist-chip.pressed {
+            transform: scale(0.86);
+        }
+
+        @keyframes assistGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(88, 86, 214, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(88, 86, 214, 0.8); }
+        }
+
+        .content-card {
+            flex: 1;
+            padding: 6px 8px 4px;
+            background: rgb(35, 35, 45);
+            border-radius: 8px;
+            border: 0.5px solid rgba(255, 255, 255, 0.06);
+            margin: 0 8px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-card-processing {
+            padding: 10px 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .loading-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .loading-spinner {
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+
+        .loading-spinner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1.2px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .loading-spinner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1.2px solid transparent;
+            border-top-color: rgba(255, 255, 255, 0.45);
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .loading-dot {
+            width: 3.5px;
+            height: 3.5px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 50%;
+            animation: dotPulse 0.5s ease-in-out infinite;
+        }
+
+        .loading-dot:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .loading-dot:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(0.5); }
+            50% { transform: scale(1); }
+        }
+
+        .skeleton-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 2px;
+            opacity: 0.25;
+            animation: skeletonPulse 0.8s ease-in-out infinite;
+        }
+
+        @keyframes skeletonPulse {
+            0%, 100% { opacity: 0.25; }
+            50% { opacity: 0.55; }
+        }
+
+        .skeleton-line {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 3px;
+        }
+
+        .skeleton-line.short {
+            width: 120px;
+        }
+
+        /* Original Input Bar - always at bottom */
+        .input-bar-original {
+            position: absolute;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 202px;
+            padding: 5px 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            border: 0.5px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.55);
+            z-index: 150;
+        }
+
+        .input-bar-original.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-50%) translateY(8px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        /* Keyboard Input Bar - appears above keyboard */
+        .input-bar-keyboard {
+            position: absolute;
+            top: 220px;
+            left: 50%;
+            transform: translateX(-50%) translateY(16px);
+            width: 264px;
+            padding: 5px 8px;
+            background: rgba(255, 255, 255, 0.16);
+            border-radius: 14px;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.33, 1, 0.68, 1), transform 1s cubic-bezier(0.33, 1, 0.68, 1), width 0.55s cubic-bezier(0.33, 1, 0.68, 1), background 0.3s, border-color 0.3s, top 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.55), 0 3px 8px rgba(88, 86, 214, 0.15);
+            z-index: 150;
+        }
+
+        .input-bar-keyboard.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .input-bar-keyboard.leaving {
+            top: 580px;
+            opacity: 0;
+            transition: top 0.55s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.35s ease;
+        }
+
+        .input-text {
+            flex: 1;
+            font-size: 13px;
+            color: white;
+            min-height: 20px;
+            max-height: 34px;
+            line-height: 1.4;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .input-text::-webkit-scrollbar {
+            display: none;
+        }
+
+        .input-bar-keyboard.fixed .text-layer-fixed {
+            position: relative;
+        }
+
+        .input-bar-keyboard.fixed .text-layer-draft {
+            display: none;
+        }
+
+        .text-layer-fixed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            clip-path: inset(0 100% 0 0);
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: white;
+            pointer-events: none;
+        }
+
+        .text-layer-draft {
+            position: relative;
+            width: 100%;
+            white-space: pre-wrap;
+            word-break: break-word;
+            clip-path: inset(0 0 0 0);
+        }
+
+        .input-text .placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .send-btn {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 9px;
+            font-weight: bold;
+            transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1), background 0.3s;
+        }
+
+        .send-btn.active {
+            background: #5856D6;
+        }
+
+        .send-btn.glowing {
+            animation: sendGlow 0.6s ease-in-out infinite;
+        }
+
+        .send-btn.pressed {
+            transform: scale(0.82);
+        }
+
+        @keyframes sendGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(88, 86, 214, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(88, 86, 214, 0.8); }
+        }
+
+        /* Particle Canvas - positioned inside phone-mockup using top */
+        .particle-canvas {
+            position: absolute;
+            top: 466px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 152;
+            width: 264px;
+            height: 40px;
+            opacity: 0;
+            transition: top 0.55s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.3s;
+        }
+
+        .particle-canvas.visible {
+            top: 230px;
+            opacity: 1;
+        }
+
+        /* Fade All */
+        .fade-all {
+            opacity: 0 !important;
+            transform: scale(0.93) !important;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Glow Aura -->
+        <div class="glow-aura" id="glowAura">
+            <div class="glow-primary"></div>
+            <div class="glow-secondary"></div>
+            <div class="glow-tertiary"></div>
+        </div>
+
+        <!-- Particle Layer -->
+        <div class="particle-layer" id="particleLayer"></div>
+
+        <!-- Headline -->
+        <div class="headline">
+            <div class="headline-line1" id="line1">Ask anything.</div>
+            <div class="headline-line2" id="line2">Get it done.</div>
+            <div class="headline-sub" id="sub">Move at thought speed.</div>
+        </div>
+
+        <!-- Phone Mockup -->
+        <div class="phone-mockup" id="phone">
+            <div class="phone-glass"></div>
+            <div class="dynamic-island"></div>
+            
+            <!-- Volume Buttons -->
+            <div class="volume-buttons">
+                <div class="volume-btn"></div>
+                <div class="volume-btn"></div>
+            </div>
+            
+            <!-- Power Button -->
+            <div class="power-button"></div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="chat-avatar">
+                        <span>W</span>
+                    </div>
+                    <div class="chat-name">Prof. William</div>
+                    <div class="chat-status"></div>
+                </div>
+                <div class="chat-bubbles">
+                    <div class="bubble bubble-incoming">Your absence from today's class has been noted.</div>
+                    <div class="bubble bubble-sent" id="sentBubble">Dear Professor, I apologize for missing today's class due to a personal issue. I'll catch up on the missed work. Thank you.</div>
+                </div>
+            </div>
+
+            <!-- Keyboard Spacer -->
+            <div class="keyboard-spacer" id="keyboardSpacer"></div>
+
+            <!-- Mock Keyboard - positioned inside phone-mockup -->
+            <div class="mock-keyboard" id="mockKeyboard">
+            <!-- Standard Keyboard -->
+            <div class="standard-keyboard" id="standardKeyboard">
+                <div class="suggestions-bar">
+                    <div class="suggestion">Yeah</div>
+                    <div class="suggestion">Sure</div>
+                    <div class="suggestion">Okay</div>
+                </div>
+                <div class="qwerty-row">
+                    <div class="key" data-key="Q">Q</div>
+                    <div class="key" data-key="W">W</div>
+                    <div class="key" data-key="E">E</div>
+                    <div class="key" data-key="R">R</div>
+                    <div class="key" data-key="T">T</div>
+                    <div class="key" data-key="Y">Y</div>
+                    <div class="key" data-key="U">U</div>
+                    <div class="key" data-key="I">I</div>
+                    <div class="key" data-key="O">O</div>
+                    <div class="key" data-key="P">P</div>
+                </div>
+                <div class="qwerty-row">
+                    <div class="key" data-key="A">A</div>
+                    <div class="key" data-key="S">S</div>
+                    <div class="key" data-key="D">D</div>
+                    <div class="key" data-key="F">F</div>
+                    <div class="key" data-key="G">G</div>
+                    <div class="key" data-key="H">H</div>
+                    <div class="key" data-key="J">J</div>
+                    <div class="key" data-key="K">K</div>
+                    <div class="key" data-key="L">L</div>
+                </div>
+                <div class="qwerty-row">
+                    <div class="key key-special" data-key="SHIFT">⇧</div>
+                    <div class="key" data-key="Z">Z</div>
+                    <div class="key" data-key="X">X</div>
+                    <div class="key" data-key="C">C</div>
+                    <div class="key" data-key="V">V</div>
+                    <div class="key" data-key="B">B</div>
+                    <div class="key" data-key="N">N</div>
+                    <div class="key" data-key="M">M</div>
+                    <div class="key key-special" data-key="BACKSPACE">⌫</div>
+                </div>
+                <div class="qwerty-row">
+                    <div class="key key-special" data-key="123">123</div>
+                    <div class="key key-space" data-key="SPACE">space</div>
+                    <div class="key key-return" data-key="RETURN">return</div>
+                </div>
+                <div class="bottom-bar">
+                    <div class="bottom-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255,255,255,0.6);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+                    <div class="home-indicator"></div>
+                    <div class="bottom-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255,255,255,0.6);"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Noetic Keyboard -->
+            <div class="noetic-keyboard" id="noeticKeyboard" style="display: none;">
+                <div class="noetic-header">
+                    <div class="brand-chip"><img src="noetic-logo.png"></div>
+                    <div class="header-divider"></div>
+                    <div class="tab-bar">
+                        <div class="tab-btn" id="tab1">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                            <span class="tab-btn-label">Fix</span>
+                        </div>
+                        <div class="tab-btn" id="tab2">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="8" width="2.5" height="8" rx="1"/><rect x="6.5" y="5" width="2.5" height="14" rx="1"/><rect x="11" y="2" width="2.5" height="20" rx="1"/><rect x="15.5" y="5" width="2.5" height="14" rx="1"/><rect x="20" y="8" width="2.5" height="8" rx="1"/></svg></span>
+                            <span class="tab-btn-label">Tone</span>
+                        </div>
+                        <div class="tab-btn active" id="tab3">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.5 9H22L16 13.5L18.5 21L12 16.5L5.5 21L8 13.5L2 9H9.5L12 2z"/></svg></span>
+                            <span class="tab-btn-label">Assist</span>
+                        </div>
+                        <div class="tab-btn" id="tab4">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
+                            <span class="tab-btn-label">Summarize</span>
+                        </div>
+                        <div class="tab-btn" id="tab5">
+                            <span class="tab-btn-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 8.85 6.75 7.14c-.36-.96-.52-2.03-.5-3.14H4.25c.02 1.48.34 2.82.95 4 .6 1.16 1.46 2.21 2.54 3.14C9.64 16.5 12.87 15.07 12.87 15.07zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg></span>
+                            <span class="tab-btn-label">Translate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="assist-chips-row" id="assistChipsRow">
+                    <div class="assist-chip" data-option="Ask" id="chipAsk">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                        <span>Ask</span>
+                    </div>
+                    <div class="assist-chip" data-option="Humanize" id="chipHumanize">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <span>Humanize</span>
+                    </div>
+                    <div class="assist-chip" data-option="Auto Reply" id="chipAutoReply">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                        <span>Auto Reply</span>
+                    </div>
+                    <div class="assist-chip" data-option="Expand" id="chipExpand">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                        <span>Expand</span>
+                    </div>
+                    <div class="assist-chip" data-option="Shorten" id="chipShorten">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/></svg>
+                        <span>Shorten</span>
+                    </div>
+                    <div class="assist-chip" data-option="Paraphrase" id="chipParaphrase">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
+                        <span>Paraphrase</span>
+                    </div>
+                </div>
+                <div class="content-card" id="contentCard">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 10px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)"><path d="M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5z"/></svg>
+                        <span style="font-size: 11px; font-weight: 600; color: white;">Ready to assist you</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Key Popup - outside keyboard to avoid overflow clipping -->
+            <div class="key-popup" id="keyPopup"></div>
+
+            <!-- Original Input Bar - always at bottom -->
+            <div class="input-bar input-bar-original" id="inputBarOriginal">
+                <div class="input-text" id="inputTextOriginal">iMessage</div>
+                <div class="send-btn" id="sendBtnOriginal">↑</div>
+            </div>
+
+            <!-- Keyboard Input Bar - appears above keyboard -->
+            <div class="input-bar input-bar-keyboard" id="inputBarKeyboard">
+                <div class="input-text" id="inputTextKeyboard">
+                    <div class="text-layer-fixed" id="textLayerFixed"></div>
+                    <div class="text-layer-draft" id="textLayerDraft"><span id="textLayerDraftInner"></span></div>
+                </div>
+                <div class="send-btn" id="sendBtnKeyboard">↑</div>
+            </div>
+
+            <!-- Particle Canvas for magic sweep - positioned inside phone-mockup -->
+            <canvas class="particle-canvas" id="magicCanvas" width="264" height="40"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Constants
+        const DRAFT_STR = "apology message for not attending classes today";
+        const RESULT_STR = "Dear Professor, I apologize for missing today's class due to a personal issue. I'll catch up on the missed work. Thank you.";
+        const CHAT_MSG = "Your absence from today's class has been noted.";
+
+        // State
+        let loopToken = Date.now();
+        let keyboardState = 'hidden'; // hidden, standard, noetic
+        let currentInputText = "";
+        let isFixed = false;
+        let isProcessing = false;
+        let isAssistChipGlowing = false;
+        let isAssistChipPressed = false;
+        let isReplaceButtonGlowing = false;
+        let isReplaceButtonPressed = false;
+        let isSendButtonGlowing = false;
+        let isSendButtonPressed = false;
+        let messageSent = false;
+        let showSentBubble = false;
+        let fadeAll = false;
+        let magicRevealProgress = 0;
+        let inputBarTextShowsFixed = false;
+        let tabCascadePhase = 0;
+        let magicParticles = [];
+
+        // DOM Elements
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const sub = document.getElementById('sub');
+        const phone = document.getElementById('phone');
+        const keyboardSpacer = document.getElementById('keyboardSpacer');
+        const mockKeyboard = document.getElementById('mockKeyboard');
+        const standardKeyboard = document.getElementById('standardKeyboard');
+        const noeticKeyboard = document.getElementById('noeticKeyboard');
+        const inputBarOriginal = document.getElementById('inputBarOriginal');
+        const inputBarKeyboard = document.getElementById('inputBarKeyboard');
+        const inputTextOriginal = document.getElementById('inputTextOriginal');
+        const inputTextKeyboard = document.getElementById('inputTextKeyboard');
+        const textLayerFixed = document.getElementById('textLayerFixed');
+        const textLayerDraft = document.getElementById('textLayerDraft');
+        const textLayerDraftInner = document.getElementById('textLayerDraftInner');
+        const sendBtnOriginal = document.getElementById('sendBtnOriginal');
+        const sendBtnKeyboard = document.getElementById('sendBtnKeyboard');
+        const sentBubble = document.getElementById('sentBubble');
+        const contentCard = document.getElementById('contentCard');
+        const assistChipsRow = document.getElementById('assistChipsRow');
+        const keyPopup = document.getElementById('keyPopup');
+        const container = document.getElementById('container');
+        const glowAura = document.getElementById('glowAura');
+        const magicCanvas = document.getElementById('magicCanvas');
+
+        function positionGlow() {
+            const phoneRect = phone.getBoundingClientRect();
+            const contRect = container.getBoundingClientRect();
+            glowAura.style.top = (phoneRect.top + phoneRect.height / 2 - contRect.top) + 'px';
+            glowAura.style.left = (phoneRect.left + phoneRect.width / 2 - contRect.left) + 'px';
+        }
+        const magicCtx = magicCanvas.getContext('2d');
+
+        // Particle layer
+        const particleConfigs = [
+            { rx: 0.11, ry: 0.13, size: 3.0, dx: 7, dy: -5, dur: 4.2 },
+            { rx: 0.89, ry: 0.10, size: 2.5, dx: -6, dy: 8, dur: 3.8 },
+            { rx: 0.06, ry: 0.58, size: 2.0, dx: 5, dy: 6, dur: 4.6 },
+            { rx: 0.94, ry: 0.54, size: 3.5, dx: -8, dy: -4, dur: 3.5 },
+            { rx: 0.46, ry: 0.06, size: 2.0, dx: 4, dy: 7, dur: 5.1 },
+            { rx: 0.75, ry: 0.81, size: 2.5, dx: -5, dy: -6, dur: 4.0 },
+        ];
+
+        function initParticles() {
+            const layer = document.getElementById('particleLayer');
+            particleConfigs.forEach((config, i) => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = config.size + 'px';
+                particle.style.height = config.size + 'px';
+                particle.style.left = (config.rx * window.innerWidth) + 'px';
+                particle.style.top = (config.ry * window.innerHeight) + 'px';
+                layer.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.style.transition = 'opacity 0.7s ease-in';
+                    particle.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        particle.style.transition = `transform ${config.dur}s ease-in-out infinite alternate`;
+                        particle.style.transform = `translate(${config.dx}px, ${config.dy}px)`;
+                    }, 100);
+                }, (i * 140) + 250);
+            });
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function cancelled() {
+            return false; // For now, always continue
+        }
+
+        function resetScene() {
+            currentInputText = "";
+            isFixed = false;
+            isProcessing = false;
+            isAssistChipGlowing = false;
+            isAssistChipPressed = false;
+            isReplaceButtonGlowing = false;
+            isReplaceButtonPressed = false;
+            isSendButtonGlowing = false;
+            isSendButtonPressed = false;
+            messageSent = false;
+            showSentBubble = false;
+            keyboardState = 'hidden';
+            magicRevealProgress = 0;
+            inputBarTextShowsFixed = false;
+            tabCascadePhase = 0;
+            magicParticles = [];
+            fadeAll = false;
+
+            // Reset UI — disable transitions temporarily to prevent flash during restart
+            sentBubble.style.transition = 'none';
+            sentBubble.classList.remove('visible');
+            sentBubble.style.opacity = '0';
+            sentBubble.style.transform = 'scale(0.82) translate(8px, 4px)';
+
+            inputTextKeyboard.scrollTop = 0;
+            inputBarKeyboard.style.transition = 'none';
+            inputBarKeyboard.classList.remove('visible', 'fixed', 'leaving');
+            inputBarKeyboard.style.opacity = '0';
+
+            keyPopup.classList.remove('visible');
+
+            phone.classList.remove('assist-border');
+            keyboardSpacer.classList.remove('popped');
+            mockKeyboard.classList.remove('visible');
+            mockKeyboard.style.display = '';
+            standardKeyboard.style.display = 'block';
+            noeticKeyboard.style.display = 'none';
+            inputBarOriginal.classList.remove('hidden');
+            sendBtnOriginal.classList.remove('active', 'glowing', 'pressed');
+            sendBtnKeyboard.classList.remove('active', 'glowing', 'pressed');
+            container.classList.remove('fade-all');
+
+            // Force reflow then restore transitions
+            void sentBubble.offsetHeight;
+            sentBubble.style.transition = '';
+            sentBubble.style.opacity = '';
+            sentBubble.style.transform = '';
+            inputBarKeyboard.style.transition = '';
+            inputBarKeyboard.style.opacity = '';
+            inputBarKeyboard.style.display = '';
+
+            // Reset tabs
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`tab${i}`).classList.remove('visible');
+            }
+
+            // Reset content card
+            contentCard.innerHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 10px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)"><path d="M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5z"/></svg>
+                    <span style="font-size: 11px; font-weight: 600; color: white;">Ready to assist you</span>
+                </div>
+            `;
+
+            updateInputText();
+        }
+
+        function updateInputText() {
+            const sendBtn = keyboardState === 'hidden' ? sendBtnOriginal : sendBtnKeyboard;
+            const inputBar = keyboardState === 'hidden' ? inputBarOriginal : inputBarKeyboard;
+            const isKeyboard = inputBar === inputBarKeyboard;
+
+            if (messageSent || currentInputText === "") {
+                if (isKeyboard) {
+                    textLayerFixed.innerHTML = '<span class="placeholder">iMessage</span>';
+                    textLayerDraft.innerHTML = '<span class="placeholder">iMessage</span>';
+                    textLayerFixed.style.clipPath = 'inset(0 100% 0 0)';
+                    textLayerDraft.style.clipPath = 'inset(0 0 0 0)';
+                    inputBar.classList.remove('fixed');
+                } else {
+                    inputTextOriginal.innerHTML = '<span class="placeholder">iMessage</span>';
+                }
+                sendBtn.classList.remove('active');
+                return;
+            }
+
+            if (inputBarTextShowsFixed) {
+                if (isKeyboard) {
+                    textLayerFixed.innerHTML = RESULT_STR.replace(/\n/g, '<br>');
+                    textLayerFixed.style.clipPath = 'inset(0 0 0 0)';
+                    textLayerDraft.style.clipPath = 'inset(0 0 0 100%)';
+                    inputBar.classList.add('fixed');
+                    sendBtn.classList.add('active');
+                } else {
+                    inputTextOriginal.textContent = RESULT_STR;
+                    inputBar.classList.add('fixed');
+                    sendBtn.classList.add('active');
+                }
+                return;
+            }
+
+            // Progressive sweep: reveal RESULT_STR over currentInputText
+            if (isKeyboard) {
+                textLayerFixed.innerHTML = RESULT_STR.replace(/\n/g, '<br>');
+                textLayerDraft.innerHTML = currentInputText.replace(/\n/g, '<br>');
+
+                const progress = Math.max(0, Math.min(1, magicRevealProgress));
+                const pct = (progress * 100).toFixed(2);
+                textLayerFixed.style.clipPath = `inset(0 ${(100 - pct)}% 0 0)`;
+                textLayerDraft.style.clipPath = `inset(0 0 0 ${pct}%)`;
+
+                if (progress > 0.01) {
+                    inputBar.classList.add('fixed');
+                    sendBtn.classList.add('active');
+                } else {
+                    inputBar.classList.remove('fixed');
+                    sendBtn.classList.remove('active');
+                }
+            } else {
+                inputTextOriginal.textContent = currentInputText;
+                inputBar.classList.remove('fixed');
+                sendBtn.classList.remove('active');
+            }
+        }
+
+        function smoothScrollToBottom(element, duration) {
+            const start = element.scrollTop;
+            const target = element.scrollHeight - element.clientHeight;
+            const distance = target - start;
+            const startTime = performance.now();
+            return new Promise(resolve => {
+                function step(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // easeInOutCubic
+                    const ease = progress < 0.5
+                        ? 4 * progress * progress * progress
+                        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                    element.scrollTop = start + distance * ease;
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        resolve();
+                    }
+                }
+                requestAnimationFrame(step);
+            });
+        }
+
+        async function runMagicSweep() {
+            const duration = 800;
+            const steps = 40;
+            const stepDelay = duration / steps;
+            const textWidth = 264;
+            const startX = -25;
+            const endX = textWidth + 25;
+            const colors = [
+                'rgba(140, 130, 220, 1)',
+                'rgba(180, 170, 240, 1)',
+                'rgba(160, 100, 230, 1)',
+                'rgba(255, 255, 255, 1)'
+            ];
+
+            magicParticles = [];
+
+            for (let step = 0; step <= steps; step++) {
+                if (cancelled()) return;
+                const progress = step / steps;
+                const currentX = startX + (endX - startX) * progress;
+                magicRevealProgress = Math.max(0, Math.min(1, currentX / textWidth));
+                updateInputText();
+
+                // Spawn particles
+                const spawnCount = step < 10 ? 10 : (step > 30 ? 3 : 7);
+                for (let i = 0; i < spawnCount; i++) {
+                    const centerLine = 19;
+                    const baseY = centerLine + (Math.random() * 10 - 5);
+                    magicParticles.push({
+                        x: currentX + (Math.random() * 64 - 32),
+                        y: baseY,
+                        size: Math.random() * 1.6 + 1.2,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        opacity: Math.random() * 0.35 + 0.5,
+                        vx: Math.random() * 50 + 40,
+                        vy: Math.random() * 12 - 18,
+                        baseY: baseY,
+                        phase: Math.random() * Math.PI * 2,
+                        amplitude: Math.random() * 8 + 6,
+                        age: 0,
+                        vYSpread: Math.random() * 70 - 35
+                    });
+                }
+
+                // Update particles
+                for (let i = magicParticles.length - 1; i >= 0; i--) {
+                    const p = magicParticles[i];
+                    p.x += p.vx * (stepDelay / 1000);
+                    p.y = p.baseY + Math.sin(step * 0.18 + p.phase) * p.amplitude;
+                    p.baseY += (p.vy + p.vYSpread) * (stepDelay / 1000);
+                    p.opacity -= Math.random() * 0.01 + 0.008;
+                    p.age++;
+                    if (p.age < 3) {
+                        p.size *= 1.08;
+                    } else {
+                        p.size *= 0.982;
+                    }
+                    if (p.opacity <= 0 || p.size <= 0.4) {
+                        magicParticles.splice(i, 1);
+                    }
+                }
+
+                drawMagicParticles();
+                await sleep(stepDelay);
+            }
+
+            // Fade out tail
+            for (let i = 0; i < 10; i++) {
+                if (cancelled()) return;
+                for (let p of magicParticles) {
+                    p.x += p.vx * 0.02;
+                    p.y = p.baseY + Math.sin(steps * 0.18 + p.phase) * p.amplitude;
+                    p.baseY += (p.vy + p.vYSpread) * 0.02;
+                    p.opacity -= 0.1;
+                    p.size *= 0.95;
+                }
+                magicParticles = magicParticles.filter(p => p.opacity > 0);
+                drawMagicParticles();
+                await sleep(20);
+            }
+            magicParticles = [];
+            magicCtx.clearRect(0, 0, magicCanvas.width, magicCanvas.height);
+        }
+
+        function drawMagicParticles() {
+            magicCtx.clearRect(0, 0, magicCanvas.width, magicCanvas.height);
+            for (let p of magicParticles) {
+                magicCtx.beginPath();
+                magicCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                magicCtx.fillStyle = p.color;
+                magicCtx.globalAlpha = p.opacity;
+                magicCtx.fill();
+            }
+            magicCtx.globalAlpha = 1;
+        }
+
+        function showAssistResult() {
+            contentCard.innerHTML = `
+                <div style="padding: 4px 8px; height: 100%; display: flex; flex-direction: column;">
+                    <div style="flex: 1; overflow-y: auto; padding: 4px 8px; background: rgba(255,255,255,0.04); border-radius: 6px; border: 0.5px solid rgba(255,255,255,0.08);">
+                        <span style="font-size: 11px; font-weight: 500; color: white; line-height: 1.35;">${RESULT_STR}</span>
+                    </div>
+                    <div style="display: flex; gap: 4px; margin-top: 6px;">
+                        <div style="display: flex; gap: 3px; padding: 4px 6px; background: rgba(255,255,255,0.06); border-radius: 4px; align-items: center;">
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255,255,255,0.6);"><path d="M12 8V4L8 8l4 4V9c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                            <span style="font-size: 8px; font-weight: 600; color: rgba(255,255,255,0.6);">New</span>
+                        </div>
+                        <div style="flex: 1;"></div>
+                        <div id="replaceBtn" style="display: flex; gap: 3px; padding: 4px 8px; background: rgba(255,255,255,0.12); border-radius: 4px; align-items: center;">
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="color: white;"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg>
+                            <span style="font-size: 8px; font-weight: 600; color: white;">Replace</span>
+                        </div>
+                        <div style="width: 18px; height: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border-radius: 4px;">
+                            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255,255,255,0.6);"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function runLoop() {
+            const token = Date.now();
+            loopToken = token;
+            resetScene();
+
+            // Entry animations
+            await sleep(400);
+            if (cancelled()) return;
+            
+            line1.style.opacity = '1';
+            line1.style.transform = 'translateY(0)';
+            
+            await sleep(130);
+            if (cancelled()) return;
+            
+            line2.style.opacity = '1';
+            line2.style.transform = 'translateY(0)';
+            
+            await sleep(150);
+            if (cancelled()) return;
+            
+            sub.style.opacity = '1';
+            sub.style.transform = 'translateY(0)';
+            
+            await sleep(890);
+            if (cancelled()) return;
+            
+            phone.classList.add('visible');
+            
+            await sleep(1000);
+            if (cancelled()) return;
+
+            // Show standard keyboard with draft already visible
+            keyboardState = 'standard';
+            keyboardSpacer.classList.add('popped');
+            mockKeyboard.classList.add('visible');
+            inputBarKeyboard.classList.add('visible');
+            inputBarKeyboard.style.opacity = '1';
+            inputBarOriginal.classList.add('hidden');
+            magicCanvas.classList.add('visible');
+            currentInputText = DRAFT_STR;
+            updateInputText();
+            
+            await sleep(500);
+            if (cancelled()) return;
+
+            await sleep(1400);
+            if (cancelled()) return;
+
+            // Switch to Noetic keyboard
+            keyboardState = 'noetic';
+            standardKeyboard.style.display = 'none';
+            noeticKeyboard.style.display = 'flex';
+            
+            // Tab cascade
+            for (let i = 1; i <= 5; i++) {
+                await sleep(70);
+                if (cancelled()) return;
+                tabCascadePhase = i;
+                document.getElementById(`tab${i}`).classList.add('visible');
+            }
+
+            await sleep(400);
+            if (cancelled()) return;
+
+            // ── Step 1: Glow + click "Ask" chip ──
+            const chipAsk = document.getElementById('chipAsk');
+            isAssistChipGlowing = true;
+            chipAsk.classList.add('glowing');
+            
+            await sleep(600);
+            if (cancelled()) return;
+
+            isAssistChipGlowing = false;
+            chipAsk.classList.remove('glowing');
+            isAssistChipPressed = true;
+            chipAsk.classList.add('pressed');
+            
+            await sleep(150);
+            if (cancelled()) return;
+
+            isAssistChipPressed = false;
+            chipAsk.classList.remove('pressed');
+            chipAsk.classList.add('selected');
+            isProcessing = true;
+            
+            // Show loading
+            contentCard.innerHTML = `
+                <div class="content-card-processing">
+                    <div class="loading-header">
+                        <div class="loading-spinner"></div>
+                        <span class="loading-text">Noetic is thinking</span>
+                        <div class="loading-dots">
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-lines">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                </div>
+            `;
+
+            await sleep(1000);
+            if (cancelled()) return;
+
+            // ── Step 2: Display result ──
+            isProcessing = false;
+            isFixed = true;
+            showAssistResult();
+            
+            await sleep(1900);
+            if (cancelled()) return;
+
+            // ── Step 3: Glow + click Replace button ──
+            isReplaceButtonGlowing = true;
+            const replaceBtn = document.getElementById('replaceBtn');
+            replaceBtn.style.animation = 'assistGlow 0.6s ease-in-out infinite';
+            
+            await sleep(800);
+            if (cancelled()) return;
+
+            // Replace button press
+            isReplaceButtonGlowing = false;
+            replaceBtn.style.animation = '';
+            isReplaceButtonPressed = true;
+            replaceBtn.style.transform = 'scale(0.84)';
+            
+            await sleep(150);
+            if (cancelled()) return;
+
+            isReplaceButtonPressed = false;
+            replaceBtn.style.transform = '';
+
+            // Magic sweep
+            await runMagicSweep();
+            if (cancelled()) return;
+
+            inputBarTextShowsFixed = true;
+            magicRevealProgress = 0;
+            updateInputText();
+
+            // Auto-scroll to reveal full text over 2 seconds (like SwiftUI)
+            await smoothScrollToBottom(inputTextKeyboard, 2000);
+            if (cancelled()) return;
+
+            // Send button glow
+            isSendButtonGlowing = true;
+            sendBtnKeyboard.classList.add('glowing');
+            
+            await sleep(600);
+            if (cancelled()) return;
+
+            // Send button press
+            isSendButtonGlowing = false;
+            sendBtnKeyboard.classList.remove('glowing');
+            isSendButtonPressed = true;
+            sendBtnKeyboard.classList.add('pressed');
+            
+            await sleep(150);
+            if (cancelled()) return;
+
+            isSendButtonPressed = false;
+            sendBtnKeyboard.classList.remove('pressed');
+            messageSent = true;
+            currentInputText = "";
+            updateInputText();
+
+            await sleep(350);
+            if (cancelled()) return;
+
+            showSentBubble = true;
+            sentBubble.classList.add('visible');
+            keyboardState = 'hidden';
+            keyboardSpacer.classList.remove('popped');
+            mockKeyboard.classList.remove('visible');
+            inputBarKeyboard.classList.add('leaving');
+            inputBarKeyboard.classList.remove('visible');
+            inputBarOriginal.classList.remove('hidden');
+            
+            // Hide keyboard and bar exactly when slide-down transition ends
+            const onSlideDone = (e) => {
+                if (e.propertyName === 'top') {
+                    mockKeyboard.removeEventListener('transitionend', onSlideDone);
+                    inputBarKeyboard.style.display = 'none';
+                    mockKeyboard.style.display = 'none';
+                }
+            };
+            mockKeyboard.addEventListener('transitionend', onSlideDone);
+            
+            await sleep(1200);
+            if (cancelled()) return;
+
+            fadeAll = true;
+            container.classList.add('fade-all');
+            
+            await sleep(1000);
+            if (cancelled()) return;
+
+            // Restart loop
+            await runLoop();
+        }
+
+        // Start
+        positionGlow();
+        window.addEventListener('resize', positionGlow);
+        initParticles();
+        setTimeout(runLoop, 2650);
+    </script>
+</body>
+</html>
