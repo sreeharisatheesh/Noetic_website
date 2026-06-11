@@ -145,16 +145,7 @@ function setupHamburgerMenu() {
 
 // LOGO FALLBACK
 function setupLogoFallback() {
-  const logoImg = document.querySelector('.logo-img');
-  if (logoImg) {
-    logoImg.addEventListener('error', () => {
-      logoImg.style.display = 'none';
-      const fallback = logoImg.nextElementSibling;
-      if (fallback && fallback.classList.contains('logo-text')) {
-        fallback.style.display = 'inline';
-      }
-    });
-  }
+  // Logo fallback is no longer needed as we always display the text
 }
 
 // ORB PARALLAX

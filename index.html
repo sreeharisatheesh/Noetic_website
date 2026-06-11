@@ -12,7 +12,10 @@
   <meta name="twitter:description" content="Fix grammar, rewrite tone, translate in any app.">
   <meta name="twitter:image" content="noetic-logo.png">
   <link rel="canonical" href="https://yoursite.com/index.html">
-  <link rel="icon" href="noetic-logo.png">
+  <link rel="icon" href="noetic-logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="noetic-logo.png" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#08080F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
   <title>Noetic — AI Keyboard for iPhone</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +28,8 @@
 <nav>
   <div class="nav-container">
     <div class="nav-logo">
-      <img src="noetic-logo.png" alt="Noetic" class="logo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-      <span class="logo-text" style="display:none;">Noetic</span>
+      <img src="noetic-logo.png" alt="Noetic" class="logo-img" loading="lazy">
+      <span class="logo-text">Noetic</span>
     </div>
     
     <ul class="nav-links" id="nav-links">
@@ -126,42 +129,43 @@
 <!-- FEATURE STRIP -->
 <section class="section" id="features" style="background: var(--bg); padding: 5rem 0;">
   <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 3rem;">Everything you need. Nothing you don't.</h2>
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Everything you need.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Five powerful AI tools, always at your fingertips.</p>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;" class="reveal-group">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem;" class="reveal-group">
       <!-- Card 1 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">✦</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Grammar Fix</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">Correct errors in one tap</p>
+      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✦</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Grammar Fix</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Correct errors in one tap</p>
       </div>
       
       <!-- Card 2 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">🎭</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Tone Rewrite</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">20+ tones, from boardroom to Gen Z</p>
+      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎭</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Tone Rewrite</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">20+ tones from boardroom to Gen Z</p>
       </div>
       
       <!-- Card 3 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">✧</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">AI Assist</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">Rephrase and clarify anything</p>
+      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✧</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">AI Assist</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Rephrase and clarify anything</p>
       </div>
       
       <!-- Card 4 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">◈</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Summarize</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">Long text → bullets instantly</p>
+      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">◈</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Summarize</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Long text to bullets instantly</p>
       </div>
       
       <!-- Card 5 -->
-      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2rem; margin-bottom: 1rem;">◎</div>
-        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Translate</h3>
-        <p style="font-size: 14px; color: var(--text-tertiary);">16 languages, including Indian</p>
+      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">◎</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Translate</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">40+ languages in one tap</p>
       </div>
     </div>
   </div>
@@ -232,28 +236,29 @@
 <!-- HOW IT WORKS -->
 <section class="section" id="how-it-works" style="padding: 5rem 0;">
   <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 3rem;">Works in every app.</h2>
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Works in every app.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Three simple steps to better writing, wherever you are.</p>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;" class="reveal-group">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;" class="reveal-group">
       <!-- Step 1 -->
-      <div style="text-align: center;">
+      <div class="glass" style="padding: 2.5rem 2rem; border-radius: var(--radius-lg);">
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">⌨</div>
-        <h3 style="font-size: 18px; margin-bottom: 1rem;">Switch keyboards</h3>
-        <p style="font-size: 14px; color: var(--text-secondary);">Tap the globe icon on any iOS keyboard to switch to Noetic. Works instantly in Messages, Gmail, WhatsApp, Instagram — anywhere.</p>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Switch keyboards</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Tap the globe icon on any iOS keyboard to switch to Noetic. Works instantly in Messages, Gmail, WhatsApp, Instagram — anywhere.</p>
       </div>
       
       <!-- Step 2 -->
-      <div style="text-align: center;">
+      <div class="glass" style="padding: 2.5rem 2rem; border-radius: var(--radius-lg);">
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">✦</div>
-        <h3 style="font-size: 18px; margin-bottom: 1rem;">Tap your tool</h3>
-        <p style="font-size: 14px; color: var(--text-secondary);">Choose Fix, Tone, Assist, Summarize, or Translate. Noetic only processes text when you tap an action — never passively reading what you type.</p>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Tap your tool</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Choose Fix, Tone, Assist, Summarize, or Translate. Noetic only processes text when you tap an action — never passively reading what you type.</p>
       </div>
       
       <!-- Step 3 -->
-      <div style="text-align: center;">
+      <div class="glass" style="padding: 2.5rem 2rem; border-radius: var(--radius-lg);">
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">◈</div>
-        <h3 style="font-size: 18px; margin-bottom: 1rem;">Replace or copy</h3>
-        <p style="font-size: 14px; color: var(--text-secondary);">Your text is rewritten in seconds. Tap Replace to insert it directly, or Copy to use it anywhere.</p>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Replace or copy</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Your text is rewritten in seconds. Tap Replace to insert it directly, or Copy to use it anywhere.</p>
       </div>
     </div>
   </div>
@@ -316,9 +321,9 @@
         <div class="pricing-price">₹0</div>
         <div class="pricing-subtext">forever</div>
         <ul class="pricing-features">
-          <li>Limited daily corrections</li>
-          <li>All 5 AI tools included</li>
-          <li>16 translation languages</li>
+          <li>50 corrections on install</li>
+          <li>All 5 AI tools</li>
+          <li>40+ languages</li>
           <li>Earn credits by watching ads</li>
         </ul>
         <button class="btn btn-primary pricing-cta" onclick="window.location.href='#'">Download Free</button>
@@ -336,8 +341,9 @@
         <div style="display: inline-block; background: rgba(0,122,255,0.2); border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 12px; color: var(--blue); margin-bottom: 1.5rem;">Save 25%</div>
         <ul class="pricing-features">
           <li>Generous daily corrections</li>
-          <li>Everything in Free</li>
-          <li>No ads</li>
+          <li>All 5 AI tools</li>
+          <li>40+ languages</li>
+          <li>Earn credits via ads</li>
         </ul>
         <button class="btn btn-gradient pricing-cta" onclick="window.location.href='#'">Get Pro</button>
       </div>
@@ -352,7 +358,8 @@
         <div class="pricing-subtext">or ₹XX/year</div>
         <ul class="pricing-features">
           <li>Unlimited corrections</li>
-          <li>Everything in Pro</li>
+          <li>All 5 AI tools</li>
+          <li>40+ languages</li>
           <li>Priority AI processing</li>
           <li>Early access to new features</li>
         </ul>
@@ -441,8 +448,8 @@
     <!-- Column 1: Logo -->
     <div class="footer-column">
       <div class="footer-logo">
-        <img src="noetic-logo.png" alt="Noetic" class="logo-img" style="width: 32px; height: 32px;" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-        <span class="logo-text" style="display:none; font-weight: 700;">Noetic</span>
+        <img src="noetic-logo.png" alt="Noetic" class="logo-img" style="width: 32px; height: 32px;" loading="lazy">
+        <span class="logo-text" style="font-weight: 700;">Noetic</span>
         <p class="footer-tagline">AI that types with you.</p>
         <p class="footer-copyright">© 2025 Noetic. All rights reserved.</p>
       </div>
