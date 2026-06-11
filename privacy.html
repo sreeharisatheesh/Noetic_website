@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Noetic Privacy Policy — We never read your keyboard. Learn about our privacy practices.">
+  <meta property="og:title" content="Noetic — Privacy Policy">
+  <meta property="og:description" content="Learn how Noetic handles your data and protects your privacy.">
+  <meta property="og:image" content="noetic-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy — Noetic">
+  <meta name="twitter:description" content="Learn how Noetic handles your data and protects your privacy.">
+  <meta name="twitter:image" content="noetic-logo.png">
+  <link rel="canonical" href="https://yoursite.com/privacy.html">
+  <link rel="icon" href="noetic-logo.png">
+  <title>Privacy Policy — Noetic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="noetic-logo.png" alt="Noetic" class="logo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span class="logo-text" style="display:none;">Noetic</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    
+    <button class="btn btn-ghost nav-cta" onclick="window.location.href='#'"><!-- TODO: Replace # with actual App Store URL after approval -->Download Free</button>
+    
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="#" class="btn btn-ghost" style="width: 100%; text-align: center;">Download Free</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<section class="section" style="padding: 5rem 0;">
+  <div style="max-width: 700px; margin: 0 auto; padding: 0 1.5rem;">
+    <h1 style="margin-bottom: 0.5rem; font-size: clamp(1.8rem, 5vw, 2.5rem);">Privacy Policy</h1>
+    <p style="color: var(--text-tertiary); font-size: 14px; margin-bottom: 3rem;">Last Updated: June 2025</p>
+    
+    <!-- Section 1: Introduction -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Introduction</h2>
+    <p>Noetic is an AI-powered keyboard extension for iPhone and iPad. We take your privacy seriously. Privacy is not an afterthought at Noetic — it is a core principle built into every decision we make. This Privacy Policy explains what information we collect, how we use it, and how we protect it.</p>
+    <p>By using Noetic, you agree to the collection and use of information in accordance with this policy. If you do not agree with our practices, please do not use our app.</p>
+    
+    <!-- Section 2: Information We Collect -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Information We Collect</h2>
+    <p><strong>Device Identifier (UUID):</strong> When you first launch Noetic, we generate a unique identifier and store it in your iPhone's Keychain. This identifier persists across app reinstalls and is used to track your account and sync your preferences across devices. We use this to enforce our two-device policy (see section below).</p>
+    <p><strong>Email and Display Name:</strong> If you choose to sign in with Google or Apple, we receive your email address and display name from the sign-in provider. These are stored to identify your account and send you important notifications.</p>
+    <p><strong>Anonymous Crash Reports:</strong> We use Firebase Crashlytics to automatically collect crash reports when the app encounters an error. These reports contain no personally identifiable information — only stack traces, device model, and iOS version. This helps us improve app stability.</p>
+    
+    <!-- Section 3: Information We Do NOT Collect -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Information We Do NOT Collect</h2>
+    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 1.5rem;">
+      <p style="margin-bottom: 1rem;"><strong>🔴 We never, ever collect:</strong></p>
+      <ul style="list-style: none; color: var(--text-secondary); font-size: 14px; line-height: 1.8;">
+        <li>✗ Keystrokes or typing patterns</li>
+        <li>✗ Passwords or sensitive field content</li>
+        <li>✗ Message content or chat history</li>
+        <li>✗ Location data</li>
+        <li>✗ Contacts or address book</li>
+        <li>✗ Photos or camera access</li>
+        <li>✗ Microphone or voice recordings</li>
+        <li>✗ Browsing history</li>
+      </ul>
+    </div>
+    <p>iOS architecture prevents custom keyboards from accessing these sensitive areas, and we intentionally do not attempt to circumvent these protections.</p>
+    
+    <!-- Section 4: Why Full Access is Required -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Why Full Access is Required</h2>
+    <p>iOS requires that custom keyboards request "Full Access" in order to make network requests. This is a system-level requirement, not specific to Noetic. Full Access in iOS does NOT grant access to your passwords, messages, or private data — iOS enforces strict sandboxing between keyboard extensions and system-sensitive APIs.</p>
+    <p>We require Full Access for one reason only: to send text to our AI processing backend over HTTPS for features like grammar fixing, tone rewriting, translation, and summarization. Without Full Access, the keyboard has no internet connectivity and our AI features cannot function.</p>
+    <p>We are technically incapable of reading password fields or accessing messaging app content. iOS's security model prevents this at the operating system level.</p>
+    
+    <!-- Section 5: How Your Text Is Processed -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">How Your Text Is Processed</h2>
+    <p>When you tap a Noetic action button (Fix, Tone, Assist, Summarize, or Translate), the text you have selected is sent to our AI processing backend. This happens only on your explicit action — never passively in the background.</p>
+    <p>During transmission, your text is encrypted using HTTPS/TLS. Once processed by our AI model, the result is sent back to your keyboard. The original text is not stored or logged. It is processed and immediately discarded.</p>
+    <p>We do not use your text for training our AI models. Your writing is processed for inference only and treated as ephemeral.</p>
+    
+    <!-- Section 6: Third-Party Services -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Third-Party Services</h2>
+    <p><strong>Supabase:</strong> We use Supabase for backend infrastructure, including our database, authentication system, and AI proxy functions. Supabase stores your device ID, email (if signed in), and credit balance. Supabase also helps us enforce the two-device account limit using Apple DeviceCheck tokens.</p>
+    <p><strong>Firebase Crashlytics (Google):</strong> We integrate Firebase Crashlytics to collect anonymous crash reports. These reports do not contain any personally identifiable information.</p>
+    <p><strong>Google AdMob:</strong> We serve rewarded video ads only when you choose to earn credits. AdMob uses standard advertising identifiers. You can opt out of personalized ads in your device's settings.</p>
+    <p><strong>Apple StoreKit:</strong> All subscription purchases are handled through Apple's in-app purchase system. We never handle your payment information directly. Apple stores and processes all payment data.</p>
+    <p><strong>Google Sign-In and Sign in with Apple:</strong> These are optional authentication methods. When you use them, we receive only your email address and display name — no other data is shared.</p>
+    
+    <!-- Section 7: Data Retention -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Data Retention</h2>
+    <p>Your device ID remains in your iPhone's Keychain and persists across app reinstalls. Your credit balance and keyboard preferences are stored locally on your device using iOS App Groups. If you delete the Noetic app, all local data is removed from your device.</p>
+    <p>We retain your account data (device ID, email, credit balance) on our backend servers for as long as your account is active. If you wish to permanently delete your account, please contact us at noeticaikeyboard@gmail.com.</p>
+    
+    <!-- Section 8: Two-Device Policy -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Two-Device Policy</h2>
+    <p>Noetic accounts are linked to a maximum of 2 devices. This policy is enforced using Apple DeviceCheck tokens to prevent credit abuse and fraud. If you attempt to sign in on a third device, you will be prompted to sign out on one of your existing devices first.</p>
+    
+    <!-- Section 9: Children's Privacy -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Children's Privacy</h2>
+    <p>Noetic is not intended for children under the age of 13. We do not knowingly collect personal information from anyone under 13. If we learn that we have collected data from a child under 13, we will delete that information immediately. If you believe we have collected data from a child under 13, please contact us at noeticaikeyboard@gmail.com.</p>
+    
+    <!-- Section 10: Policy Updates -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Policy Updates</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we make material changes, we will update the "Last Updated" date at the top of this page. Your continued use of Noetic following the posting of revised Privacy Policy means you accept and agree to the changes.</p>
+    
+    <!-- Section 11: Contact -->
+    <h2 style="border-left: 3px solid; border-image: var(--gradient-brand) 1; padding-left: 1rem; margin-top: 3rem; margin-bottom: 1.5rem;">Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+    <p style="margin-top: 1rem;">
+      <strong>Email:</strong> <a href="mailto:noeticaikeyboard@gmail.com">noeticaikeyboard@gmail.com</a>
+    </p>
+    <p style="margin-top: 2rem; color: var(--text-tertiary); font-size: 14px;">We will respond to all privacy inquiries within 14 days.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <div class="footer-logo">
+        <img src="noetic-logo.png" alt="Noetic" class="logo-img" style="width: 32px; height: 32px;" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="logo-text" style="display:none; font-weight: 700;">Noetic</span>
+        <p class="footer-tagline">AI that types with you.</p>
+        <p class="footer-copyright">© 2025 Noetic. All rights reserved.</p>
+      </div>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Grammar Fix</a></li>
+        <li><a href="index.html#features">Tone Rewrite</a></li>
+        <li><a href="index.html#features">AI Assist</a></li>
+        <li><a href="index.html#features">Summarize</a></li>
+        <li><a href="index.html#features">Translate</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.threads.com/@noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Threads</a></li>
+        <li><a href="mailto:noeticaikeyboard@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>Noetic is not affiliated with Apple Inc. iPhone and iOS are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+</body>
+</html>

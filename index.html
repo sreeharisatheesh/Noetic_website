@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Noetic — AI-powered keyboard for iPhone. Fix grammar, rewrite tone, translate, and more without leaving the app.">
+  <meta property="og:title" content="Noetic — AI Keyboard for iPhone">
+  <meta property="og:description" content="AI-powered keyboard that fixes grammar, rewrites tone, translates to 16 languages, and summarizes text.">
+  <meta property="og:image" content="noetic-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Noetic — AI Keyboard for iPhone">
+  <meta name="twitter:description" content="Fix grammar, rewrite tone, translate in any app.">
+  <meta name="twitter:image" content="noetic-logo.png">
+  <link rel="canonical" href="https://yoursite.com/index.html">
+  <link rel="icon" href="noetic-logo.png">
+  <title>Noetic — AI Keyboard for iPhone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="noetic-logo.png" alt="Noetic" class="logo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span class="logo-text" style="display:none;">Noetic</span>
+    </div>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    
+    <button class="btn btn-ghost nav-cta" onclick="window.location.href='#'"><!-- TODO: Replace # with actual App Store URL after approval -->Download Free</button>
+    
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="#" class="btn btn-ghost" style="width: 100%; text-align: center;">Download Free</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="section section-hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="section-content reveal">
+      <!-- Badge -->
+      <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+        <div class="glass" style="padding: 0.75rem 1.5rem; border-radius: 100px; display: flex; align-items: center; gap: 0.5rem; width: fit-content; margin: 0 auto;">
+          <span class="badge-pulse" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue);"></span>
+          <span style="font-size: 13px; font-weight: 600;">Now on the App Store</span>
+        </div>
+      </div>
+      
+      <!-- Headline -->
+      <h1 style="text-align: center; margin-bottom: 0.5rem; font-weight: 200;">Write better.</h1>
+      <h1 style="text-align: center; margin-bottom: 2rem; background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800;">In any app.</h1>
+      
+      <!-- Subtext -->
+      <p style="text-align: center; font-size: 16px; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto;">Noetic is an AI keyboard that fixes grammar, rewrites your tone, translates to 16 languages, and summarizes text — without leaving the app you're in.</p>
+      
+      <!-- Buttons -->
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px; margin: 0 auto; margin-bottom: 2rem;">
+        <a href="#" style="display: block; text-align: center;">
+          <!-- TODO: Replace # with actual App Store URL after approval -->
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+               alt="Download on the App Store" style="height: 54px; width: auto;">
+        </a>
+        <button class="btn btn-ghost btn-bounce" style="width: 100%;" onclick="document.querySelector('#how-it-works').scrollIntoView({behavior:'smooth'});">
+          See how it works <span class="arrow">↓</span>
+        </button>
+      </div>
+      
+      <!-- Trust line -->
+      <p style="text-align: center; font-size: 13px; color: var(--text-tertiary);">
+        Free to start · No keystroke logging · Works in every app
+      </p>
+    </div>
+  </div>
+  
+  <!-- iPhone Mockup -->
+  <div class="iphone-mockup" style="margin-top: 4rem;">
+    <div class="iphone-notch"></div>
+    <div class="iphone-screen">
+      <div class="iphone-tab-bar">
+        <div class="iphone-tab active">Fix</div>
+        <div class="iphone-tab">Tone</div>
+        <div class="iphone-tab">Assist</div>
+        <div class="iphone-tab">Sum</div>
+        <div class="iphone-tab">Trans</div>
+      </div>
+      <div class="iphone-content">
+        <div class="iphone-card">
+          <div class="iphone-card-title">Rewritten professionally.</div>
+          <div style="color: var(--text-tertiary); font-size: 11px; margin-bottom: 8px;">✓</div>
+          <div class="iphone-card-buttons">
+            <button class="iphone-card-btn">Replace</button>
+            <button class="iphone-card-btn">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<section class="section" id="features" style="background: var(--bg); padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Everything you need. Nothing you don't.</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;" class="reveal-group">
+      <!-- Card 1 -->
+      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">✦</div>
+        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Grammar Fix</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">Correct errors in one tap</p>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">🎭</div>
+        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Tone Rewrite</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">20+ tones, from boardroom to Gen Z</p>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">✧</div>
+        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">AI Assist</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">Rephrase and clarify anything</p>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">◈</div>
+        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Summarize</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">Long text → bullets instantly</p>
+      </div>
+      
+      <!-- Card 5 -->
+      <div class="glass tilt-card" style="padding: 2rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">◎</div>
+        <h3 style="font-size: 18px; margin-bottom: 0.5rem;">Translate</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">16 languages, including Indian</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TONE SHOWCASE -->
+<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">20+ Tones. One tap.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">From boardroom to group chat — Noetic matches your voice.</p>
+    
+    <!-- Marquee Row 1 (Left to Right) -->
+    <div class="marquee" style="margin-bottom: 1.5rem;">
+      <div class="marquee-track">
+        <span class="tone-pill blue">Professional</span>
+        <span class="tone-pill violet">Casual</span>
+        <span class="tone-pill gold">Gen Z</span>
+        <span class="tone-pill blue">Funny</span>
+        <span class="tone-pill violet">Flirty</span>
+        <span class="tone-pill gold">Scholarly</span>
+        <span class="tone-pill blue">Empathetic</span>
+        <span class="tone-pill violet">Bold</span>
+        <span class="tone-pill gold">Poetic</span>
+        <span class="tone-pill blue">Diplomatic</span>
+        <!-- Duplicated for continuous scroll -->
+        <span class="tone-pill violet">Professional</span>
+        <span class="tone-pill gold">Casual</span>
+        <span class="tone-pill blue">Gen Z</span>
+        <span class="tone-pill violet">Funny</span>
+        <span class="tone-pill gold">Flirty</span>
+        <span class="tone-pill blue">Scholarly</span>
+        <span class="tone-pill violet">Empathetic</span>
+        <span class="tone-pill gold">Bold</span>
+        <span class="tone-pill blue">Poetic</span>
+        <span class="tone-pill violet">Diplomatic</span>
+      </div>
+    </div>
+    
+    <!-- Marquee Row 2 (Right to Left) -->
+    <div class="marquee">
+      <div class="marquee-track reverse">
+        <span class="tone-pill gold">Friendly</span>
+        <span class="tone-pill blue">Sarcastic</span>
+        <span class="tone-pill violet">Motivational</span>
+        <span class="tone-pill gold">Formal</span>
+        <span class="tone-pill blue">Concise</span>
+        <span class="tone-pill violet">Romantic</span>
+        <span class="tone-pill gold">Assertive</span>
+        <span class="tone-pill blue">Witty</span>
+        <span class="tone-pill violet">Warm</span>
+        <span class="tone-pill gold">Playful</span>
+        <!-- Duplicated for continuous scroll -->
+        <span class="tone-pill blue">Friendly</span>
+        <span class="tone-pill violet">Sarcastic</span>
+        <span class="tone-pill gold">Motivational</span>
+        <span class="tone-pill blue">Formal</span>
+        <span class="tone-pill violet">Concise</span>
+        <span class="tone-pill gold">Romantic</span>
+        <span class="tone-pill blue">Assertive</span>
+        <span class="tone-pill violet">Witty</span>
+        <span class="tone-pill gold">Warm</span>
+        <span class="tone-pill blue">Playful</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works" style="padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Works in every app.</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;" class="reveal-group">
+      <!-- Step 1 -->
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⌨</div>
+        <h3 style="font-size: 18px; margin-bottom: 1rem;">Switch keyboards</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">Tap the globe icon on any iOS keyboard to switch to Noetic. Works instantly in Messages, Gmail, WhatsApp, Instagram — anywhere.</p>
+      </div>
+      
+      <!-- Step 2 -->
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✦</div>
+        <h3 style="font-size: 18px; margin-bottom: 1rem;">Tap your tool</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">Choose Fix, Tone, Assist, Summarize, or Translate. Noetic only processes text when you tap an action — never passively reading what you type.</p>
+      </div>
+      
+      <!-- Step 3 -->
+      <div style="text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">◈</div>
+        <h3 style="font-size: 18px; margin-bottom: 1rem;">Replace or copy</h3>
+        <p style="font-size: 14px; color: var(--text-secondary);">Your text is rewritten in seconds. Tap Replace to insert it directly, or Copy to use it anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY PROMISE -->
+<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">We never read your keyboard.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Full Access is needed for AI network requests — not for logging. Passwords, messages, and browsing are never accessible to us.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;" class="reveal-group">
+      <!-- Privacy Card 1 -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg);">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">No keystrokes logged</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">We only process text when you explicitly tap a button. Passive monitoring is impossible by design.</p>
+      </div>
+      
+      <!-- Privacy Card 2 -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg);">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">🛡</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Passwords never seen</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">iOS isolates password fields completely. Our keyboard cannot access them.</p>
+      </div>
+      
+      <!-- Privacy Card 3 -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg);">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">🗑</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Text not stored</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">Your text is processed for the AI request and immediately discarded. We retain nothing.</p>
+      </div>
+      
+      <!-- Privacy Card 4 -->
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg);">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">🔐</div>
+        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Encrypted everywhere</h3>
+        <p style="font-size: 14px; color: var(--text-tertiary);">All communication uses HTTPS/TLS. Your data is protected in transit.</p>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="privacy.html" style="color: var(--text-secondary); text-decoration: underline;">Read our full Privacy Policy →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section class="section" id="pricing" style="padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Start free. Upgrade when ready.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">No credit card required for free tier.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <!-- Free Tier -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-chip blue">FREE</div>
+        </div>
+        <div class="pricing-price">₹0</div>
+        <div class="pricing-subtext">forever</div>
+        <ul class="pricing-features">
+          <li>Limited daily corrections</li>
+          <li>All 5 AI tools included</li>
+          <li>16 translation languages</li>
+          <li>Earn credits by watching ads</li>
+        </ul>
+        <button class="btn btn-primary pricing-cta" onclick="window.location.href='#'">Download Free</button>
+        <p style="text-align: center; font-size: 12px; color: var(--text-tertiary); margin-top: 1rem;">No account required</p>
+      </div>
+      
+      <!-- Pro Tier -->
+      <div class="pricing-card pricing-popular">
+        <div class="pricing-header">
+          <div class="pricing-chip badge-popular">POPULAR</div>
+        </div>
+        <div class="pricing-price">Starting from ₹XX/month</div>
+        <!-- TODO: Update with actual StoreKit price before launch -->
+        <div class="pricing-subtext" style="margin-bottom: 0.5rem;">or ₹XX/year</div>
+        <div style="display: inline-block; background: rgba(0,122,255,0.2); border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 12px; color: var(--blue); margin-bottom: 1.5rem;">Save 25%</div>
+        <ul class="pricing-features">
+          <li>Generous daily corrections</li>
+          <li>Everything in Free</li>
+          <li>No ads</li>
+        </ul>
+        <button class="btn btn-gradient pricing-cta" onclick="window.location.href='#'">Get Pro</button>
+      </div>
+      
+      <!-- Premium Tier -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-chip gold">UNLIMITED</div>
+        </div>
+        <div class="pricing-price">Starting from ₹XX/month</div>
+        <!-- TODO: Update with actual StoreKit price before launch -->
+        <div class="pricing-subtext">or ₹XX/year</div>
+        <ul class="pricing-features">
+          <li>Unlimited corrections</li>
+          <li>Everything in Pro</li>
+          <li>Priority AI processing</li>
+          <li>Early access to new features</li>
+        </ul>
+        <button class="btn btn-primary pricing-cta" onclick="window.location.href='#'">Go Unlimited</button>
+      </div>
+    </div>
+    
+    <div style="text-align: center; background: var(--surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+      <p style="font-size: 13px; color: var(--text-secondary);">Pricing shown in Indian Rupees. Available via in-app purchase on the App Store.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
+  <div class="container reveal">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Questions? Answered.</h2>
+    
+    <div style="max-width: 700px; margin: 0 auto;">
+      <!-- FAQ Item 1 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>How do I enable the Noetic keyboard?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Settings → General → Keyboard → Keyboards → Add New Keyboard → Noetic. Then tap Noetic in the list and enable "Allow Full Access."</div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Why does Noetic need Full Access?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Full Access allows the keyboard to connect to the internet for AI processing. Without it, the AI tools cannot function. This permission is never used to log your keystrokes or access your private data.</div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>How do credits work?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Every AI action uses one credit. Free users receive a daily credit allowance that resets at midnight. You can earn extra credits by watching a short rewarded video. Pro and Premium subscribers get higher daily limits or unlimited usage.</div>
+          <!-- TODO: Confirm exact credit limits from codebase before launch -->
+        </div>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Is my text data private?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">Yes. We only send text to our AI when you explicitly tap an action button. We never log what you type passively. Processed text is discarded immediately and not stored.</div>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 5 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>What languages does Translate support?</span>
+          <div class="accordion-chevron">▼</div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">English, Hindi, Spanish, French, German, Arabic, Chinese, Japanese, Korean, Portuguese, Tamil, Telugu, Malayalam, Bengali, Kannada, and Italian — 16 languages total.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="support.html" class="btn btn-ghost" style="display: inline-flex;">See all FAQs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <!-- Column 1: Logo -->
+    <div class="footer-column">
+      <div class="footer-logo">
+        <img src="noetic-logo.png" alt="Noetic" class="logo-img" style="width: 32px; height: 32px;" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="logo-text" style="display:none; font-weight: 700;">Noetic</span>
+        <p class="footer-tagline">AI that types with you.</p>
+        <p class="footer-copyright">© 2025 Noetic. All rights reserved.</p>
+      </div>
+    </div>
+    
+    <!-- Column 2: Product -->
+    <div class="footer-column">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#features">Grammar Fix</a></li>
+        <li><a href="#features">Tone Rewrite</a></li>
+        <li><a href="#features">AI Assist</a></li>
+        <li><a href="#features">Summarize</a></li>
+        <li><a href="#features">Translate</a></li>
+      </ul>
+    </div>
+    
+    <!-- Column 3: Company -->
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+    
+    <!-- Column 4: Connect -->
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.threads.com/@noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Threads</a></li>
+        <li><a href="mailto:noeticaikeyboard@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>Noetic is not affiliated with Apple Inc. iPhone and iOS are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+</body>
+</html>
