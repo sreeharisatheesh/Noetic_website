@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Noetic — Learn about our mission to make clear, confident writing accessible to everyone.">
+  <meta property="og:title" content="About — Noetic">
+  <meta property="og:description" content="Built for better words. Learn about Noetic and our values.">
+  <meta property="og:image" content="noetic-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Noetic">
+  <meta name="twitter:description" content="Built for better words. Learn about Noetic and our values.">
+  <meta name="twitter:image" content="noetic-logo.png">
+  <link rel="canonical" href="https://yoursite.com/about.html">
+  <link rel="icon" href="noetic-logo.png">
+  <title>About — Noetic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="noetic-logo.png" alt="Noetic" class="logo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span class="logo-text" style="display:none;">Noetic</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    
+    <button class="btn btn-ghost nav-cta" onclick="window.location.href='#'"><!-- TODO: Replace # with actual App Store URL after approval -->Download Free</button>
+    
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="#" class="btn btn-ghost" style="width: 100%; text-align: center;">Download Free</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ABOUT SECTION -->
+<section class="section" style="position: relative; padding: 5rem 0;">
+  <div class="orb orb-1" style="top: -100px; left: -150px;"></div>
+  <div class="orb orb-2" style="bottom: -50px; right: -100px;"></div>
+  
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="section-content reveal">
+      <h1 style="text-align: center; margin-bottom: 3rem;">Built for better words.</h1>
+      
+      <p style="font-size: 16px; line-height: 1.8; margin-bottom: 1.5rem;">
+        Noetic is an AI keyboard for iPhone that puts powerful writing tools exactly where you need them — inside the keyboard itself. No copy-pasting between apps. No context switching. Just type, tap, and write better.
+      </p>
+      
+      <p style="font-size: 16px; line-height: 1.8; margin-bottom: 1.5rem;">
+        We built Noetic because we got tired of switching apps just to fix a badly worded message. Writing is hard enough. Your keyboard should help. So we built one that actually does — for every text field, in every app, for every kind of writing.
+      </p>
+      
+      <p style="font-size: 16px; line-height: 1.8; margin-bottom: 3rem;">
+        Our mission is simple: make clear, confident writing accessible to everyone. Whether you're a student, a professional, or just someone who wants to sound better in a text message — Noetic is for you.
+      </p>
+      
+      <!-- Values Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;" class="reveal-group">
+        <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
+          <h3 style="font-size: 16px; margin-bottom: 0.5rem; font-weight: 600;">Privacy First</h3>
+          <p style="font-size: 14px; color: var(--text-tertiary);">We only process what you choose to share.</p>
+        </div>
+        
+        <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+          <h3 style="font-size: 16px; margin-bottom: 0.5rem; font-weight: 600;">Clarity Over Complexity</h3>
+          <p style="font-size: 14px; color: var(--text-tertiary);">One tap. No menus. No confusion.</p>
+        </div>
+        
+        <div class="glass" style="padding: 2rem; border-radius: var(--radius-lg); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🌍</div>
+          <h3 style="font-size: 16px; margin-bottom: 0.5rem; font-weight: 600;">Made for Everyone</h3>
+          <p style="font-size: 14px; color: var(--text-tertiary);">16 languages, including Indian regional languages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="section" style="background: var(--bg-alt); padding: 5rem 0;">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 0.5rem; reveal">Get in touch.</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; reveal">Questions, feedback, press inquiries, or partnership ideas — we read every message.</p>
+    
+    <div style="max-width: 500px; margin: 0 auto;">
+      <!-- Contact Form -->
+      <form class="contact-form glass" action="https://formspree.io/f/mpqejjda" method="POST" style="padding: 2rem; border-radius: var(--radius-lg); reveal">
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+        
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        
+        <!-- Subject Field -->
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject...</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Bug Report">Bug Report</option>
+            <option value="Feature Request">Feature Request</option>
+            <option value="Press">Press</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <!-- Message Field -->
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-gradient" style="width: 100%; margin-top: 1rem;">Send Message →</button>
+      </form>
+      
+      <!-- Form Note -->
+      <p style="text-align: center; font-size: 12px; color: var(--text-tertiary); margin-top: 1rem;">
+        <!-- This form opens the user's email client. For a true server-side contact form, replace this with a Formspree or EmailJS integration later. -->
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <div class="footer-logo">
+        <img src="noetic-logo.png" alt="Noetic" class="logo-img" style="width: 32px; height: 32px;" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="logo-text" style="display:none; font-weight: 700;">Noetic</span>
+        <p class="footer-tagline">AI that types with you.</p>
+        <p class="footer-copyright">© 2025 Noetic. All rights reserved.</p>
+      </div>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="index.html#features">Grammar Fix</a></li>
+        <li><a href="index.html#features">Tone Rewrite</a></li>
+        <li><a href="index.html#features">AI Assist</a></li>
+        <li><a href="index.html#features">Summarize</a></li>
+        <li><a href="index.html#features">Translate</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.threads.com/@noetic_aikeyboard" target="_blank" rel="noopener noreferrer">Threads</a></li>
+        <li><a href="mailto:noeticaikeyboard@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>Noetic is not affiliated with Apple Inc. iPhone and iOS are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+</body>
+</html>
