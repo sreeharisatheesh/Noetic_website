@@ -210,8 +210,8 @@ function setupPricingToggle() {
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const yearly = btn.dataset.period === 'yearly';
-      document.querySelectorAll('.price-monthly').forEach(el => el.style.display = yearly ? 'none' : 'block');
-      document.querySelectorAll('.price-yearly').forEach(el => el.style.display = yearly ? 'block' : 'none');
+      document.querySelectorAll('.price-monthly').forEach(el => el.style.display = yearly ? 'none' : '');
+      document.querySelectorAll('.price-yearly').forEach(el => el.style.display = yearly ? '' : 'none');
     });
   });
 }
