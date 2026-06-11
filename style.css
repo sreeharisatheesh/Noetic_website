@@ -1258,11 +1258,13 @@ footer {
 .orbit-ring-1 {
   width: 280px;
   height: 280px;
+  animation: orbit-cw 20s linear infinite;
 }
 
 .orbit-ring-2 {
   width: 440px;
   height: 440px;
+  animation: orbit-cw 30s linear infinite reverse;
 }
 
 .orbit-icon {
@@ -1288,14 +1290,6 @@ footer {
   to {
     transform: rotate(calc(var(--start-angle) + 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--start-angle) + 360deg)));
   }
-}
-
-.orbit-ring-1 {
-  animation: orbit-cw 20s linear infinite;
-}
-
-.orbit-ring-2 {
-  animation: orbit-cw 30s linear infinite reverse;
 }
 
 @media (max-width: 768px) {
