@@ -55,16 +55,19 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: clamp(48px, 8vw, 92px);
+  font-weight: 700;
 }
 
 h2 {
   font-size: clamp(36px, 6vw, 64px);
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 h3 {
   font-size: clamp(24px, 4vw, 36px);
   margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 p {
@@ -109,8 +112,7 @@ a:hover {
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 .btn-primary {
@@ -122,19 +124,28 @@ a:hover {
 .btn-primary:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-ghost {
-background: linear-gradient(var(--bg), var(--bg)) padding-box,
+  background: linear-gradient(var(--bg), var(--bg)) padding-box,
             var(--gradient-brand) border-box;
-border: 1px solid transparent;
-color: var(--text-primary);
+  border: 1px solid transparent;
+  color: var(--text-primary);
 }
 
 .btn-ghost:hover {
   background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--gradient-brand) border-box;
   box-shadow: var(--glow-violet);
   transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
 }
 
 .btn-gradient {
@@ -147,6 +158,10 @@ color: var(--text-primary);
   opacity: 0.9;
   transform: translateY(-2px);
   box-shadow: var(--glow-violet);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
 }
 
 .btn-sm {
@@ -631,11 +646,13 @@ color: var(--text-primary);
   font-size: 14px;
   flex-shrink: 0;
   transition: all 0.3s ease;
+  cursor: default;
 }
 
 .tone-pill:hover {
   border-color: var(--border-hover);
   background: var(--surface-hover);
+  transform: translateY(-2px);
 }
 
 .tone-pill.blue { color: var(--blue); }
@@ -845,6 +862,7 @@ nav.scrolled {
   backdrop-filter: blur(24px);
   background: rgba(8,8,15,0.8);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .nav-container {
