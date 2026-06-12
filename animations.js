@@ -175,7 +175,158 @@ function setupOrbParallax() {
   });
 }
 
+// ─────────────────────────────────────────
+// SCROLL PROGRESS BAR
+// ─────────────────────────────────────────
+function setupScrollProgress() {
+  const bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.prepend(bar);
+
+  function update() {
+    const scrolled = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (max > 0 ? Math.min(100, (scrolled / max) * 100) : 0) + '%';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+// ─────────────────────────────────────────
+// CURSOR SPOTLIGHT (desktop only)
+// ─────────────────────────────────────────
+function setupCursorSpotlight() {
+  if (!isHoverDevice()) return;
+
+  const spot = document.createElement('div');
+  spot.className = 'cursor-spotlight';
+  document.body.appendChild(spot);
+
+  let mx = window.innerWidth / 2;
+  let my = window.innerHeight / 2;
+  let sx = mx, sy = my;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    spot.style.opacity = '1';
+  });
+
+  document.addEventListener('mouseleave', () => {
+    spot.style.opacity = '0';
+  });
+
+  (function tick() {
+    sx += (mx - sx) * 0.07;
+    sy += (my - sy) * 0.07;
+    spot.style.left = sx + 'px';
+    spot.style.top  = sy + 'px';
+    requestAnimationFrame(tick);
+  })();
+}
+
+// ─────────────────────────────────────────
+// MAGNETIC BUTTONS (desktop only)
+// ─────────────────────────────────────────
+function setupMagneticButtons() {
+  if (!isHoverDevice()) return;
+
+  const btns = document.querySelectorAll('.btn-gradient, .nav-cta');
+
+  btns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r  = btn.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width  / 2)) * 0.22;
+      const dy = (e.clientY - (r.top  + r.height / 2)) * 0.22;
+      btn.style.transform = `translate(${dx}px, ${dy}px) translateY(-2px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+}
+
+// ─────────────────────────────────────────
+// FEATURE ROW REVEAL ANIMATIONS
+// ─────────────────────────────────────────
+function setupFeatureAnimations() {
+  const rows = document.querySelectorAll('.feature-row');
+  if (!rows.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  rows.forEach(row => obs.observe(row));
+}
+
+// ─────────────────────────────────────────
+// HERO IPHONE — AUTO TAB CYCLER
+// ─────────────────────────────────────────
+function setupHeroMockup() {
+  const mockup = document.querySelector('.iphone-mockup');
+  if (!mockup) return;
+
+  const tabs    = mockup.querySelectorAll('.iphone-tab');
+  const titleEl = mockup.querySelector('.iphone-card-title');
+  if (!tabs.length || !titleEl) return;
+
+  const slides = [
+    { tab: 0, text: 'Grammar fixed. Sounds perfect.' },
+    { tab: 1, text: 'Tone set to Professional.'       },
+    { tab: 2, text: 'Rephrased and clarified.'        },
+    { tab: 3, text: 'Summarized to 3 bullets.'        },
+    { tab: 4, text: 'Translated to Hindi.'            },
+  ];
+
+  let cur = 0;
+  titleEl.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+  function cycle() {
+    tabs[slides[cur].tab].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    tabs[slides[cur].tab].classList.add('active');
+
+    titleEl.style.opacity   = '0';
+    titleEl.style.transform = 'translateY(5px)';
+
+    setTimeout(() => {
+      titleEl.textContent     = slides[cur].text;
+      titleEl.style.opacity   = '1';
+      titleEl.style.transform = 'translateY(0)';
+    }, 260);
+  }
+
+  setInterval(cycle, 2400);
+}
+
+// ─────────────────────────────────────────
+// PRICING CARD — HOVER GLOW
+// ─────────────────────────────────────────
+function setupPricingHover() {
+  if (!isHoverDevice()) return;
+
+  document.querySelectorAll('.pricing-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r  = card.getBoundingClientRect();
+      const x  = ((e.clientX - r.left) / r.width)  * 100;
+      const y  = ((e.clientY - r.top)  / r.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
+}
+
+// ─────────────────────────────────────────
 // INITIALIZE ALL
+// ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupTiltCards();
@@ -185,4 +336,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setupHamburgerMenu();
   setupLogoFallback();
   setupOrbParallax();
+  // Premium enhancements
+  setupScrollProgress();
+  setupCursorSpotlight();
+  setupMagneticButtons();
+  setupFeatureAnimations();
+  setupHeroMockup();
+  setupPricingHover();
 });
