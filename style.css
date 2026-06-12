@@ -204,6 +204,8 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .glass:hover {
@@ -1176,4 +1178,608 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.2);
+}
+
+/* ================================================
+   EYEBROW TAG
+   ================================================ */
+
+.eyebrow-tag {
+  display: inline-block;
+  background: rgba(0,122,255,0.1);
+  border: 1px solid rgba(0,122,255,0.2);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ================================================
+   FEATURE SHOWCASE — ALTERNATING LAYOUT
+   ================================================ */
+
+.features-showcase {
+  background: var(--bg);
+  padding: 8rem 0;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+
+.feature-row:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Flipped variant — phone column goes visually right */
+.feature-row-flip .feature-phone-col { order: 2; }
+.feature-row-flip .feature-text-col  { order: 1; }
+
+/* Phone column */
+.feature-phone-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Ambient glow behind each mockup */
+.feature-glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.22;
+  z-index: 0;
+}
+.glow-blue   { background: radial-gradient(circle, rgba(0,122,255,0.65) 0%, transparent 70%); }
+.glow-violet { background: radial-gradient(circle, rgba(168,85,247,0.65) 0%, transparent 70%); }
+.glow-gold   { background: radial-gradient(circle, rgba(255,176,32,0.55) 0%, transparent 70%); }
+.glow-mixed  { background: radial-gradient(circle, rgba(0,122,255,0.4) 0%, rgba(168,85,247,0.5) 55%, transparent 100%); }
+
+/* iPhone Feature Frame */
+.iphone-feat {
+  width: 270px;
+  height: 555px;
+  border-radius: 44px;
+  border: 1.5px solid rgba(255,255,255,0.1);
+  background: linear-gradient(150deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.15) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.03),
+    0 60px 120px rgba(0,0,0,0.8),
+    0 20px 40px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.iphone-feat-notch {
+  width: 88px;
+  height: 22px;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.iphone-feat-screen {
+  flex: 1;
+  background: #08090F;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 6px;
+}
+
+/* Mini tab bar */
+.iphone-tabs-mini {
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.tab-mini {
+  flex: 1;
+  text-align: center;
+  padding: 7px 0;
+  font-size: 8.5px;
+  font-weight: 600;
+  color: rgba(245,245,247,0.18);
+  position: relative;
+  font-family: inherit;
+}
+
+.tab-mini.tab-active {
+  color: rgba(245,245,247,0.88);
+}
+
+.tab-mini.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--gradient-brand);
+}
+
+/* Demo content components */
+.demo-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: rgba(245,245,247,0.28);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.demo-label-ok { color: rgba(50,215,75,0.65); }
+
+.demo-bubble {
+  font-size: 11px;
+  line-height: 1.55;
+  padding: 9px 11px;
+  border-radius: 10px;
+  color: rgba(245,245,247,0.7);
+}
+
+.demo-bubble-error {
+  background: rgba(255,59,48,0.06);
+  border: 1px solid rgba(255,59,48,0.16);
+}
+
+.demo-bubble-ok {
+  background: rgba(50,215,75,0.04);
+  border: 1px solid rgba(50,215,75,0.12);
+  color: rgba(245,245,247,0.82);
+}
+
+.err {
+  color: rgba(255,80,70,0.9);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: rgba(255,59,48,0.5);
+  text-underline-offset: 2px;
+}
+
+.demo-arrow-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.demo-arrow-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.05);
+}
+
+.demo-arrow-icon {
+  font-size: 9px;
+  color: rgba(0,122,255,0.55);
+}
+
+.demo-btns {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.demo-action {
+  flex: 1;
+  padding: 7px 0;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.demo-action:hover { opacity: 0.85; }
+
+.demo-action.primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.demo-action.ghost {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  color: rgba(245,245,247,0.55);
+}
+
+/* Tone selector */
+.tone-chip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.tone-chip {
+  padding: 6px 4px;
+  border-radius: 7px;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(245,245,247,0.35);
+  transition: all 0.2s;
+}
+
+.tone-chip-on {
+  background: rgba(168,85,247,0.12);
+  border-color: rgba(168,85,247,0.3);
+  color: var(--violet);
+}
+
+/* AI Assist selector */
+.assist-chip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.assist-chip {
+  padding: 7px 4px;
+  border-radius: 7px;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(245,245,247,0.35);
+  transition: all 0.2s;
+}
+
+.assist-chip-on {
+  background: rgba(0,122,255,0.12);
+  border-color: rgba(0,122,255,0.3);
+  color: var(--blue);
+}
+
+/* Summary list */
+.sum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(255,176,32,0.04);
+  border: 1px solid rgba(255,176,32,0.09);
+  border-radius: 10px;
+}
+
+.sum-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 9.5px;
+  line-height: 1.45;
+  color: rgba(245,245,247,0.72);
+}
+
+.sum-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Language list */
+.lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(245,245,247,0.35);
+  transition: background 0.2s;
+}
+
+.lang-row-on {
+  background: rgba(0,122,255,0.1);
+  border: 1px solid rgba(0,122,255,0.2);
+  color: rgba(245,245,247,0.88);
+}
+
+/* Feature text column */
+.feature-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.feat-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.feat-chip-blue   { background: rgba(0,122,255,0.1);   border: 1px solid rgba(0,122,255,0.2);   color: var(--blue); }
+.feat-chip-violet { background: rgba(168,85,247,0.1);  border: 1px solid rgba(168,85,247,0.2);  color: var(--violet); }
+.feat-chip-gold   { background: rgba(255,176,32,0.1);  border: 1px solid rgba(255,176,32,0.2);  color: var(--gold); }
+
+.feat-h3 {
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.feat-p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.feat-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.feat-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 14px;
+  color: rgba(245,245,247,0.5);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.feat-list li:last-child { border-bottom: none; }
+
+.feat-list li::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: rgba(0,122,255,0.12);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='7' viewBox='0 0 9 7'%3E%3Cpath d='M1 3.5L3.5 6L8 1' stroke='%23007AFF' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid rgba(0,122,255,0.22);
+}
+
+/* ================================================
+   HOW IT WORKS ENHANCEMENT
+   ================================================ */
+
+.how-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+/* Faint connector line between steps — desktop only */
+@media (min-width: 900px) {
+  .how-steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 2.1rem;
+    left: calc(33.33% - 0.5rem);
+    right: calc(33.33% - 0.5rem);
+    height: 1px;
+    background: var(--gradient-brand);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+}
+
+.how-step-card {
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+}
+
+.step-num-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: rgba(245,245,247,0.18);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ================================================
+   SCROLL PROGRESS BAR
+   ================================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--gradient-brand);
+  z-index: 9999;
+  pointer-events: none;
+  will-change: width;
+}
+
+/* ================================================
+   CURSOR SPOTLIGHT
+   ================================================ */
+
+.cursor-spotlight {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side, rgba(0,122,255,0.042) 0%, transparent 100%);
+  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: left, top;
+}
+
+/* ================================================
+   GLASS SHIMMER
+   ================================================ */
+
+.glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255,255,255,0.035) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.glass:hover::after {
+  left: 160%;
+  transition: left 0.75s ease;
+}
+
+/* Don't double-shimmer tilt-cards (they already have ::before gradient) */
+.glass.tilt-card::after {
+  display: none;
+}
+
+/* ================================================
+   FEATURE ROW — REVEAL ANIMATIONS
+   ================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Children start invisible with directional offsets */
+  .feature-phone-col,
+  .feature-text-col {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
+  .feature-phone-col {
+    transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1),
+                transform 0.85s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .feature-text-col {
+    transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1) 0.1s,
+                transform 0.85s cubic-bezier(0.16,1,0.3,1) 0.1s;
+  }
+
+  /* Standard rows: phone slides in from left, text from right */
+  .feature-row:not(.feature-row-flip) .feature-phone-col { transform: translateX(-52px); }
+  .feature-row:not(.feature-row-flip) .feature-text-col  { transform: translateX(52px); }
+
+  /* Flipped rows: phone slides in from right, text from left */
+  .feature-row-flip .feature-phone-col { transform: translateX(52px); }
+  .feature-row-flip .feature-text-col  { transform: translateX(-52px); }
+
+  /* In-view: slide to natural position */
+  .feature-row.in-view .feature-phone-col,
+  .feature-row.in-view .feature-text-col {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Gentle float on visible iPhones */
+  @keyframes feat-float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-9px); }
+  }
+
+  .feature-row.in-view .iphone-feat {
+    animation: feat-float 4s ease-in-out infinite;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — FEATURE SHOWCASE
+   ================================================ */
+
+@media (max-width: 960px) {
+  .features-showcase { padding: 5rem 0; }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+  }
+
+  /* Always: phone on top, text below */
+  .feature-row-flip .feature-phone-col,
+  .feature-row .feature-phone-col { order: 1; }
+  .feature-row-flip .feature-text-col,
+  .feature-row .feature-text-col  { order: 2; }
+
+  .iphone-feat {
+    width: 240px;
+    height: 490px;
+    border-radius: 38px;
+  }
+
+  .feat-h3 { font-size: clamp(34px, 8vw, 48px); }
+  .feature-glow { width: 260px; height: 260px; }
+}
+
+@media (max-width: 480px) {
+  .features-showcase { padding: 4rem 0; }
+  .feature-row { margin-bottom: 4rem; }
+
+  .iphone-feat {
+    width: 200px;
+    height: 408px;
+    border-radius: 32px;
+  }
+
+  .iphone-feat-notch {
+    width: 70px;
+    height: 18px;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .tab-mini { font-size: 7.5px; }
 }
