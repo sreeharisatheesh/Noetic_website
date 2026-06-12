@@ -126,48 +126,233 @@
   </div>
 </section>
 
-<!-- FEATURE STRIP -->
-<section class="section" id="features" style="background: var(--bg); padding: 5rem 0;">
-  <div class="container reveal">
-    <h2 style="text-align: center; margin-bottom: 0.5rem;">Everything you need.</h2>
-    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Five powerful AI tools, always at your fingertips.</p>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem;" class="reveal-group">
-      <!-- Card 1 -->
-      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✦</div>
-        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Grammar Fix</h3>
-        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Correct errors in one tap</p>
+<!-- FEATURE SHOWCASE — ALTERNATING LEFT/RIGHT -->
+<section class="section features-showcase" id="features">
+  <div class="container">
+
+    <!-- Section header -->
+    <div class="reveal" style="text-align: center; margin-bottom: 6rem;">
+      <div class="eyebrow-tag">Five powerful tools</div>
+      <h2 style="margin-top: 1rem; margin-bottom: 1rem;">Every tool.<br>One keyboard.</h2>
+      <p style="max-width: 500px; margin: 0 auto; font-size: 17px;">No switching apps. No copy-paste. Tap and transform your text, right where you're typing.</p>
+    </div>
+
+    <!-- ── Feature 1: Grammar Fix ── iPhone LEFT, text RIGHT -->
+    <div class="feature-row">
+      <div class="feature-phone-col">
+        <div class="feature-glow glow-blue"></div>
+        <div class="iphone-feat">
+          <div class="iphone-feat-notch"></div>
+          <div class="iphone-feat-screen">
+            <div class="iphone-tabs-mini">
+              <span class="tab-mini tab-active">Fix</span>
+              <span class="tab-mini">Tone</span>
+              <span class="tab-mini">Assist</span>
+              <span class="tab-mini">Sum</span>
+              <span class="tab-mini">Trans</span>
+            </div>
+            <div style="flex:1; padding:14px; display:flex; flex-direction:column; gap:9px; overflow:hidden;">
+              <div class="demo-label">Original</div>
+              <div class="demo-bubble demo-bubble-error"><span class="err">Your</span> the best <span class="err">freind</span> i have ever <span class="err">mett</span></div>
+              <div class="demo-arrow-row"><div class="demo-arrow-line"></div><div class="demo-arrow-icon">✦</div><div class="demo-arrow-line"></div></div>
+              <div class="demo-label demo-label-ok">Fixed ✓</div>
+              <div class="demo-bubble demo-bubble-ok">You're the best friend I have ever met.</div>
+              <div class="demo-btns">
+                <button class="demo-action primary">Replace</button>
+                <button class="demo-action ghost">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <!-- Card 2 -->
-      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎭</div>
-        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Tone Rewrite</h3>
-        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">20+ tones from boardroom to Gen Z</p>
-      </div>
-      
-      <!-- Card 3 -->
-      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">✧</div>
-        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">AI Assist</h3>
-        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Rephrase and clarify anything</p>
-      </div>
-      
-      <!-- Card 4 -->
-      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">◈</div>
-        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Summarize</h3>
-        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Long text to bullets instantly</p>
-      </div>
-      
-      <!-- Card 5 -->
-      <div class="glass tilt-card feature-card" style="padding: 2rem 1.5rem; text-align: center; border-radius: var(--radius-lg); transition: all 0.3s ease;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">◎</div>
-        <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Translate</h3>
-        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">40+ languages in one tap</p>
+      <div class="feature-text-col">
+        <div class="feat-chip feat-chip-blue">Grammar Fix</div>
+        <h3 class="feat-h3">Fix errors.<br>Instantly.</h3>
+        <p class="feat-p">One tap corrects every typo, grammar slip, and punctuation mistake — without changing what you meant to say. No matter how fast you type.</p>
+        <ul class="feat-list">
+          <li>Spelling and grammar corrected</li>
+          <li>Punctuation fixed automatically</li>
+          <li>Your meaning always preserved</li>
+        </ul>
       </div>
     </div>
+
+    <!-- ── Feature 2: Tone Rewrite ── text LEFT, iPhone RIGHT -->
+    <div class="feature-row feature-row-flip">
+      <div class="feature-phone-col">
+        <div class="feature-glow glow-violet"></div>
+        <div class="iphone-feat">
+          <div class="iphone-feat-notch"></div>
+          <div class="iphone-feat-screen">
+            <div class="iphone-tabs-mini">
+              <span class="tab-mini">Fix</span>
+              <span class="tab-mini tab-active">Tone</span>
+              <span class="tab-mini">Assist</span>
+              <span class="tab-mini">Sum</span>
+              <span class="tab-mini">Trans</span>
+            </div>
+            <div style="flex:1; padding:14px; display:flex; flex-direction:column; gap:9px; overflow:hidden;">
+              <div class="demo-label">Select a tone</div>
+              <div class="tone-chip-grid">
+                <div class="tone-chip tone-chip-on">Professional</div>
+                <div class="tone-chip">Casual</div>
+                <div class="tone-chip">Gen Z</div>
+                <div class="tone-chip">Funny</div>
+                <div class="tone-chip">Empathetic</div>
+                <div class="tone-chip">Bold</div>
+              </div>
+              <div class="demo-arrow-row"><div class="demo-arrow-line"></div><div class="demo-arrow-icon">✦</div><div class="demo-arrow-line"></div></div>
+              <div class="demo-bubble demo-bubble-ok" style="font-size:10px;">"Please find the attached proposal for your review at your earliest convenience."</div>
+              <div class="demo-btns">
+                <button class="demo-action primary">Replace</button>
+                <button class="demo-action ghost">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-text-col">
+        <div class="feat-chip feat-chip-violet">Tone Rewrite</div>
+        <h3 class="feat-h3">20+ tones.<br>One tap.</h3>
+        <p class="feat-p">From boardroom formal to Gen Z casual, Noetic rewrites your words in exactly the voice the moment calls for — without changing what you meant to say.</p>
+        <ul class="feat-list">
+          <li>20+ distinct tone options</li>
+          <li>Matches any context or audience</li>
+          <li>Core message always preserved</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Feature 3: AI Assist ── iPhone LEFT, text RIGHT -->
+    <div class="feature-row">
+      <div class="feature-phone-col">
+        <div class="feature-glow glow-mixed"></div>
+        <div class="iphone-feat">
+          <div class="iphone-feat-notch"></div>
+          <div class="iphone-feat-screen">
+            <div class="iphone-tabs-mini">
+              <span class="tab-mini">Fix</span>
+              <span class="tab-mini">Tone</span>
+              <span class="tab-mini tab-active">Assist</span>
+              <span class="tab-mini">Sum</span>
+              <span class="tab-mini">Trans</span>
+            </div>
+            <div style="flex:1; padding:14px; display:flex; flex-direction:column; gap:9px; overflow:hidden;">
+              <div class="demo-label">What do you need?</div>
+              <div class="assist-chip-grid">
+                <div class="assist-chip assist-chip-on">Rephrase</div>
+                <div class="assist-chip">Expand</div>
+                <div class="assist-chip">Simplify</div>
+                <div class="assist-chip">Formalize</div>
+              </div>
+              <div class="demo-arrow-row"><div class="demo-arrow-line"></div><div class="demo-arrow-icon">✦</div><div class="demo-arrow-line"></div></div>
+              <div class="demo-bubble demo-bubble-ok" style="font-size:10px;">"Could you share more detail about when the project is expected to wrap up?"</div>
+              <div class="demo-btns">
+                <button class="demo-action primary">Replace</button>
+                <button class="demo-action ghost">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-text-col">
+        <div class="feat-chip feat-chip-blue">AI Assist</div>
+        <h3 class="feat-h3">Rephrase<br>anything.</h3>
+        <p class="feat-p">Stuck on how to say something? Noetic rephrases, expands, simplifies, or formalizes any text in seconds — like having a writing coach inside your keyboard.</p>
+        <ul class="feat-list">
+          <li>Rephrase for clarity or flow</li>
+          <li>Expand short notes into paragraphs</li>
+          <li>Simplify complex phrasing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Feature 4: Summarize ── text LEFT, iPhone RIGHT -->
+    <div class="feature-row feature-row-flip">
+      <div class="feature-phone-col">
+        <div class="feature-glow glow-gold"></div>
+        <div class="iphone-feat">
+          <div class="iphone-feat-notch"></div>
+          <div class="iphone-feat-screen">
+            <div class="iphone-tabs-mini">
+              <span class="tab-mini">Fix</span>
+              <span class="tab-mini">Tone</span>
+              <span class="tab-mini">Assist</span>
+              <span class="tab-mini tab-active">Sum</span>
+              <span class="tab-mini">Trans</span>
+            </div>
+            <div style="flex:1; padding:14px; display:flex; flex-direction:column; gap:9px; overflow:hidden;">
+              <div class="demo-label">Summary</div>
+              <div class="sum-list">
+                <div class="sum-item"><span class="sum-dot"></span><span>Meeting moved to Friday, 3 PM</span></div>
+                <div class="sum-item"><span class="sum-dot"></span><span>Budget approved up to ₹50,000</span></div>
+                <div class="sum-item"><span class="sum-dot"></span><span>Riya to share revised deck by Thu</span></div>
+              </div>
+              <div class="demo-btns" style="margin-top:auto;">
+                <button class="demo-action primary">Replace</button>
+                <button class="demo-action ghost">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-text-col">
+        <div class="feat-chip feat-chip-gold">Summarize</div>
+        <h3 class="feat-h3">Long text,<br>instant bullets.</h3>
+        <p class="feat-p">Turn walls of text into crisp bullet points. Summarize long messages, articles, or email threads in one tap — and actually remember what they said.</p>
+        <ul class="feat-list">
+          <li>Long paragraphs into bullets</li>
+          <li>Every key detail captured</li>
+          <li>Works on any length of text</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Feature 5: Translate ── iPhone LEFT, text RIGHT -->
+    <div class="feature-row">
+      <div class="feature-phone-col">
+        <div class="feature-glow glow-blue"></div>
+        <div class="iphone-feat">
+          <div class="iphone-feat-notch"></div>
+          <div class="iphone-feat-screen">
+            <div class="iphone-tabs-mini">
+              <span class="tab-mini">Fix</span>
+              <span class="tab-mini">Tone</span>
+              <span class="tab-mini">Assist</span>
+              <span class="tab-mini">Sum</span>
+              <span class="tab-mini tab-active">Trans</span>
+            </div>
+            <div style="flex:1; padding:14px; display:flex; flex-direction:column; gap:9px; overflow:hidden;">
+              <div class="demo-label">Translate to</div>
+              <div class="lang-list">
+                <div class="lang-row lang-row-on">🇮🇳 <span>Hindi</span></div>
+                <div class="lang-row">🇪🇸 <span>Spanish</span></div>
+                <div class="lang-row">🇫🇷 <span>French</span></div>
+                <div class="lang-row">🇩🇪 <span>German</span></div>
+                <div class="lang-row">🇯🇵 <span>Japanese</span></div>
+              </div>
+              <div class="demo-arrow-row"><div class="demo-arrow-line"></div><div class="demo-arrow-icon">✦</div><div class="demo-arrow-line"></div></div>
+              <div class="demo-bubble demo-bubble-ok" style="font-size:11px;">आप सबसे अच्छे दोस्त हैं।</div>
+              <div class="demo-btns">
+                <button class="demo-action primary">Replace</button>
+                <button class="demo-action ghost">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-text-col">
+        <div class="feat-chip feat-chip-blue">Translate</div>
+        <h3 class="feat-h3">40+ languages.<br>Zero friction.</h3>
+        <p class="feat-p">Translate anything into 40+ languages without ever leaving the app you're in. Message internationally, study abroad, or help family — from your keyboard.</p>
+        <ul class="feat-list">
+          <li>40+ languages supported</li>
+          <li>Accurate, natural-sounding results</li>
+          <li>Instant — no app-switching needed</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -239,23 +424,26 @@
     <h2 style="text-align: center; margin-bottom: 0.5rem;">Works in every app.</h2>
     <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 16px;">Three simple steps to better writing, wherever you are.</p>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;" class="reveal-group">
+    <div class="how-steps-grid reveal-group">
       <!-- Step 1 -->
-      <div class="glass" style="padding: 2.5rem 2rem; border-radius: var(--radius-lg);">
+      <div class="glass how-step-card">
+        <div class="step-num-label">01</div>
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">⌨</div>
         <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Switch keyboards</h3>
         <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Tap the globe icon on any iOS keyboard to switch to Noetic. Works instantly in Messages, Gmail, WhatsApp, Instagram — anywhere.</p>
       </div>
       
       <!-- Step 2 -->
-      <div class="glass" style="padding: 2.5rem 2rem; border-radius: var(--radius-lg);">
+      <div class="glass how-step-card">
+        <div class="step-num-label">02</div>
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">✦</div>
         <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Tap your tool</h3>
         <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Choose Fix, Tone, Assist, Summarize, or Translate. Noetic only processes text when you tap an action — never passively reading what you type.</p>
       </div>
       
       <!-- Step 3 -->
-      <div class="glass" style="padding: 2.5rem 2rem; border-radius: var(--radius-lg);">
+      <div class="glass how-step-card">
+        <div class="step-num-label">03</div>
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">◈</div>
         <h3 style="font-size: 16px; margin-bottom: 0.75rem; font-weight: 600;">Replace or copy</h3>
         <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Your text is rewritten in seconds. Tap Replace to insert it directly, or Copy to use it anywhere.</p>
